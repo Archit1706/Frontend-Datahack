@@ -32,6 +32,7 @@
     "react-player": "^2.13.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.6.1",
+    "react-select": "^5.7.7",
     "react-toastify": "^9.1.2",
     "reacticons": "^0.0.1",
     "reactstrap": "^9.1.5",
