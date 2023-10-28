@@ -413,31 +413,42 @@ export default function App() {
                     }
                 />
 
-        <Route exact path="/posture" element={<>
+                <Route
+                    exact
+                    path="/posture"
+                    element={
+                        <>
+                            <Navbar />
+                            <Posture />
+                            <Footer />
+                        </>
+                    }
+                />
 
-          <Navbar />
-          <Posture />
-          <Footer />
+                <Route
+                    exact
+                    path="/recommendation"
+                    element={
+                        <>
+                            <Navbar />
+                            <Recommendation />
+                            <Footer />
+                        </>
+                    }
+                />
 
-        </>} />
-
-        <Route exact path="/recommendation" element={<>
-
-<Navbar />
-<Recommendation />
-<Footer />
-
-</>} />
-
-        <Route exact path="/consent" element={<>
-
-<Navbar />
-<Consent />
-<Footer />
-
-</>} />
-
-      </Routes>
-    </Router>
-  )
+                <Route
+                    exact
+                    path="/consent"
+                    element={
+                        <>
+                            <Navbar />
+                            <Consent />
+                            <Footer />
+                        </>
+                    }
+                />
+            </Routes>
+        </Router>
+    );
 }
