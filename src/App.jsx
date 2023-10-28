@@ -426,19 +426,6 @@ export default function App() {
           }
         />
 
-        <Route
-          exact
-          path="/recommendation"
-          element={
-            <>
-              <Navbar />
-              <Recommendation />
-              <Footer />
-            </>
-          }
-        />
-
-
         <Route exact path="/recommendation" element={<>
 
           <Navbar />
