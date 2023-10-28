@@ -6,6 +6,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors : {
+        "main" : {
+          "DEFAULT" : "c759ff",
+        }
+      },
       fontFamily: {
         ubuntu: ["Ubuntu", "sans-serif"],
       },

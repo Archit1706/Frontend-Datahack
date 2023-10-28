@@ -88,6 +88,8 @@ const workouts = [
 const Posture = () => {
 
 
+    const videoRef = React.useRef(null);
+
     const [video, setVideo] = useState(null);
 
     const [selectedWorkout, setSelectedWorkout] = useState(null);
@@ -95,6 +97,8 @@ const Posture = () => {
     const [loading, setLoading] = useState(false);
 
     const [result, setResult] = useState(null);
+
+    const [timestamp, setTimestamp] = useState(0);
 
     const handleSubmit = async () => {
         if (!video) {
@@ -120,12 +124,14 @@ const Posture = () => {
 
 
 
-            const formData = new FormData();
-            formData.append("exercise_type", selectedWorkout);
-            formData.append("file", video);
+            // const formData = new FormData();
+            // formData.append("exercise_type", selectedWorkout);
+            // formData.append("file", video);
 
-            const res = await axios.post("https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app/upload-video?exercise_type=" + selectedWorkout, formData);
-            console.log(res.data);
+            // const res = await axios.post("https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app/upload-video?exercise_type=" + selectedWorkout, formData);
+            // console.log(res.data);
+            //  setResult(res.data);
+            // setLoading(false);
 
             /*
             {
@@ -147,35 +153,42 @@ const Posture = () => {
 }
 */
 
-            // setTimeout(() => {
-            //     console.log("done");
-            //     setResult({
-            //         "type": "plank",
-            //         "processed": true,
-            //         "file_name": "/videos/video1.mp4",
-            //         "details": [
-            //             {
-            //                 "stage": "low back",
-            //                 "frame": "/static/images/video_20231028203253_0.jpg",
-            //                 "timestamp": 5
-            //             },
-            //             {
-            //                 "stage": "high back",
-            //                 "frame": "/static/images/video_20231028203253_1.jpg",
-            //                 "timestamp": 9
-            //             }
-            //         ]
-            //     });
-            //     setLoading(false);
-            // }, 5000);
-            setResult(res.data);
-            setLoading(false);
+            setTimeout(() => {
+                console.log("done");
+                setResult({
+                    "type": "plank",
+                    "processed": true,
+                    "file_name": "/videos/video1.mp4",
+                    "details": [
+                        {
+                            "stage": "low back",
+                            "frame": "/static/images/video_20231028203253_0.jpg",
+                            "timestamp": 5
+                        },
+                        {
+                            "stage": "high back",
+                            "frame": "/static/images/video_20231028203253_1.jpg",
+                            "timestamp": 9
+                        }
+                    ]
+                });
+                setLoading(false);
+            }, 5000);
+
 
         } catch (e) {
             console.log(e);
             setLoading(false);
         }
     }
+
+    useEffect(() => {
+        if (videoRef.current) {
+            // Set the current time of the video when the timestamp changes
+            videoRef.current.seekTo(timestamp, 'seconds');
+            // videoRef.current.pause()
+        }
+    }, [timestamp]);
 
     console.log("hehe", result);
 
@@ -185,9 +198,9 @@ const Posture = () => {
         >
             <h3 className='text-xl md:text-3xl text-black font-bold'>Posture Detection</h3>
 
-            <div className='flex gap-8 w-full border border-gray-300 border-solid p-2 md:p-8 rounded-2xl'>
+            <div className='flex flex-col md:flex-row gap-8 w-full border border-gray-300 border-solid p-2 md:p-8 rounded-2xl'>
 
-                <div className="flex justify-center w-1/2 sm:max-w-lg">
+                <div className="flex justify-center md:w-1/2 sm:max-w-lg">
 
                     {
                         video ? (
@@ -258,7 +271,7 @@ const Posture = () => {
 
                 </div>
 
-                <div className='w-1/2 flex flex-col gap-6 justify-between'>
+                <div className='md:w-1/2 flex flex-col gap-6 justify-between'>
                     <div className='flex flex-wrap gap-4'>
                         {/* Workout to choose from */}
                         {
@@ -293,42 +306,55 @@ const Posture = () => {
                     </div>
                 ) : (
                     result && result?.file_name ? (
-                        <div className='flex items-start gap-8 w-full border border-gray-300 border-solid p-2 md:p-8 rounded-2xl relative'>
+                        <div className='flex flex-col md:flex-row items-start gap-8 w-full border border-gray-300 border-solid p-2 md:p-8 rounded-2xl relative'>
                             {/* Video */}
-                            <div className='w-2/3'>
+                            <div className='w-full md:w-2/3'>
                                 {/* <VideoPlayer url={result.file_name} /> */}
                                 {/* <ReactPlayer url={result.file_name} /> */}
-                                <video
+                                {/* <video
                                     className="w-full h-full"
                                     src={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" + result.file_name}
                                     controls
+                                    // start video from 5 seconds
+                                    ref={videoRef}
+                                /> */}
+                                <ReactPlayer
+                                    url={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" + result.file_name}
+                                    controls
+                                    muted
+                                    width="100%"
+                                    height="100%"
+                                    ref={videoRef}
                                 />
                             </div>
 
                             {/* Horizontali scrollable slider having multiple images */}
-                            <div className='absolute top-0 right-0 w-1/3 p-2 md:p-8 h-full'>
+                            <div className='md:absolute top-0 right-0 md:w-1/3 p-2 md:p-8 h-full'>
                                 <div className='flex flex-col gap-4 overflow-y-auto scrollbar-hide h-full'>
                                     {
                                         result?.details?.map((obj, index) => {
                                             return (
                                                 <div
                                                     key={index}
-                                                    className='flex flex-col gap-4 rounded-lg shadow-lg w-full max-h-60 border '
+                                                    onClick={() => {
+                                                        setTimestamp(obj.timestamp);
+                                                    }}
+                                                    className={`flex flex-col gap-4 rounded-lg shadow-lg w-full border`}
                                                 >
                                                     <div
                                                         key={index}
-                                                        className='rounded-lg shadow-lg w-full max-h-40 flex items-center justify-center overflow-hidden'
+                                                        className='rounded-lg shadow-lg w-full max-h-60 flex items-center justify-center overflow-hidden'
                                                     >
-                                                        {/*<img
-                                                            src={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app"+obj?.frame}
+                                                        <img
+                                                            src={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" + obj?.frame}
                                                             alt={obj.stage}
-                                                            className='w-full object-cover'
-                                            />*/}
+                                                            className='w-full aspect-video'
+                                                        />
 
-                                                        <iframe
+                                                        {/* <iframe
                                                             src={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" + obj?.frame}
                                                             className='w-full h-full'
-                                                        />
+                                                        /> */}
                                                         {/* <ImageDisplay url={obj?.frame} alt={obj?.stage} /> */}
                                                     </div>
 
@@ -344,7 +370,7 @@ const Posture = () => {
                                                             style={{
                                                                 marginBlock: '0'
                                                             }}
-                                                            className='text-gray-500 text-sm'>{obj?.timestamp} seconds</p>
+                                                            className='text-gray-500 text-sm'>{obj?.timestamp}<sup>th</sup> second</p>
                                                     </div>
                                                 </div>
                                             )
