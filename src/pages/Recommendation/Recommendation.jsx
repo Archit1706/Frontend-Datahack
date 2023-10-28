@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
+import TypewriterText from "../../components/TypewriterText";
 
 const days = [1, 2, 3, 4, 5, 6, 7];
 
@@ -40,10 +41,10 @@ const MealComponent = ({ breakfast, lunch, dinner, day }) => {
             <div className="container my-24 mx-auto md:px-6">
                 {/* Section: Design Block */}
                 <section className="mb-32 text-center">
-                    <h3 className="mb-12 pb-4 text-center text-2xl font-semibold">
+                    <h3 className="mb-12 text-center text-2xl font-semibold">
                         Your Recommendations for Today (Day {day})
                     </h3>
-                    <div className="grid gap-6 grid-cols-3">
+                    <div className="grid gap-6 sm:grid-cols-3">
                         <div className="mb-6 lg:mb-0">
                             <div className="relative block rounded-lg bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700">
                                 <div className="flex">
@@ -158,6 +159,12 @@ const MealComponent = ({ breakfast, lunch, dinner, day }) => {
 const Recommendation = () => {
     const [day, setDay] = useState(1);
     const [response, setResponse] = useState({});
+    const res =
+        "1. Breakfast: Oats\n2. Lunch: Chicken\n3. Dinner: Rice\n1. Breakfast: Oats\n2. Lunch: Chicken\n3. Dinner: Rice\n1. Breakfast: Oats\n2. Lunch: Chicken\n3. Dinner: Rice\n1. Breakfast: Oats\n2. Lunch: Chicken\n3. Dinner: Rice\n1. Breakfast: Oats\n2. Lunch: Chicken\n3. Dinner: Rice\n1. Breakfast: Oats\n2. Lunch: Chicken\n3. Dinner: Rice\n".split(
+            /\r?\n/
+        );
+    const [openaiResponse, setOpenaiResponse] = useState(res);
+    console.log(openaiResponse);
 
     useEffect(() => {
         // const data = fetch("https://api.npoint.io/1a4d2fbbd8b4e4b7d8a5", {
@@ -204,7 +211,7 @@ const Recommendation = () => {
     ];
 
     return (
-        <>
+        <div className="w-full rounded-md p-2">
             {/* <div className="flex justify-center items-center bg-inherit tabs tabs-boxed">
                 <a
                     className={
@@ -293,30 +300,53 @@ const Recommendation = () => {
                     Day 7
                 </a>
             </div> */}
-            <div className="flex justify-center items-center w-32">
+            <div className="flex justify-center items-center -mb-14 md:mt-12 gap-4 text-md">
+                Select Day
                 <Select
+                    className="w-36"
                     defaultValue={day}
                     onChange={(day) => setDay(day.value)}
                     options={options}
                 />
             </div>
-
-            {/*Tabs content*/}
-            <div className="mb-6">
-                <div
-                    key={day}
-                    className="opacity-100 transition-opacity duration-150 ease-linear"
-                    id={day}
-                >
-                    <MealComponent
-                        breakfast={breakfastData}
-                        lunch={lunchData}
-                        dinner={dinnerData}
-                        day={day}
-                    />
+            <div className="flex w-full flex-wrap rounded-md p-2">
+                <div className="w-full md:w-2/3">
+                    {/*Tabs content*/}
+                    <div className="">
+                        <div
+                            key={day}
+                            className="opacity-100 transition-opacity duration-150 ease-linear"
+                            id={day}
+                        >
+                            <MealComponent
+                                breakfast={breakfastData}
+                                lunch={lunchData}
+                                dinner={dinnerData}
+                                day={day}
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="w-full md:w-1/3 bg-gray-100 rounded-md p-4">
+                    <h3 className="mb-12 text-center text-2xl font-semibold">
+                        Complete Day Plan
+                    </h3>
+                    <ul>
+                        {openaiResponse &&
+                            openaiResponse.map((item, index) => {
+                                return (
+                                    <li key={index} className="">
+                                        <TypewriterText text={item} />
+                                    </li>
+                                );
+                            })}
+                    </ul>
+                    {/* <p className="text-md">
+                    {openaiResponse && <TypewriterText text={openaiResponse} />}
+                </p> */}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
