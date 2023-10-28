@@ -34,7 +34,7 @@ const Profile = (props) => {
       setChallengeAccepted(true);
     } else {
       setFriend(true);
-      fetch("https://backend.sidd065.repl.co/api/friend/add", {
+      fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/friend/add", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ const Profile = (props) => {
       });
     }
     navigate('/users/' + id)
-    /*fetch("https://backend.sidd065.repl.co/api/friend/competition", {
+    /*fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/friend/competition", {
 method: "POST",
 headers: {
   'Content-Type': 'application/json'
@@ -304,7 +304,7 @@ body: JSON.stringify({
 
             <div className="w-full flex items-center justify-center gap-4 mt-3">
               <button
-                className="bg-orange-500 text-white active:bg-orange-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 hover:scale-105 ease-linear transition-all duration-150"
+                className="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 hover:scale-105 ease-linear transition-all duration-150"
                 onClick={handleClick}
               >
                 {isFriend ? 'Challenge' : 'Add Friend'}

@@ -42,7 +42,7 @@ const Leaderboard = () => {
             <div className="w-full mb-12 px-4">
                 <div
                     className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded 
-  bg-orange-200 text-black border-orange-800"
+  bg-violet-200 text-black border-violet-800"
                 >
                     <div className="rounded-t mb-0 px-4 py-3 border-0">
                         <div className="flex flex-wrap items-center justify-center text-center">
@@ -57,19 +57,19 @@ const Leaderboard = () => {
                         <table className="items-center w-full bg-transparent border-collapse">
                             <thead>
                                 <tr>
-                                    <th className="px-12 md:px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-orange-400 text-orange-800 border-orange-700">
+                                    <th className="px-12 md:px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-violet-400 text-violet-800 border-violet-700">
                                         User Name
                                     </th>
-                                    <th className="px-12 md:px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-orange-400 text-orange-800 border-orange-700 pl-12 md:pl-6">
+                                    <th className="px-12 md:px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-violet-400 text-violet-800 border-violet-700 pl-12 md:pl-6">
                                         Daily Steps Count
                                     </th>
-                                    <th className="px-12 md:px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-orange-400 text-orange-800 border-orange-700">
+                                    <th className="px-12 md:px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-violet-400 text-violet-800 border-violet-700">
                                         Calories Burnt
                                     </th>
-                                    <th className="px-12 md:px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-orange-400 text-orange-800 border-orange-700">
+                                    <th className="px-12 md:px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-violet-400 text-violet-800 border-violet-700">
                                         Badges Earned
                                     </th>
-                                    <th className="px-12 md:px-6px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-orange-400 text-orange-800 border-orange-700">
+                                    <th className="px-12 md:px-6px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-violet-400 text-violet-800 border-violet-700">
                                         Profile
                                     </th>
                                 </tr>
@@ -167,7 +167,7 @@ const Leaderboard = () => {
                                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                 <Link
                                                     to={`/users/${user._id}`}
-                                                    className="p-2 ml-4 bg-orange-400 shadow-md hover:bg-orange-500 rounded-md"
+                                                    className="p-2 ml-4 bg-violet-400 shadow-md hover:bg-violet-500 rounded-md"
                                                 >
                                                     <span className="mx-3 font-bold text-black">
                                                         View

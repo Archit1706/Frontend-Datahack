@@ -12,7 +12,7 @@ const SafetyGuide = () => {
       <div className="w-screen px-4 md:px-32">
                 <div
                     className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded 
-  bg-orange-200 text-black border-orange-800"
+  bg-violet-200 text-black border-violet-800"
                 >
                     <div className="rounded-t mb-0 px-4 py-3 border-0">
                         <div className="flex flex-wrap items-center justify-center text-center">
@@ -27,10 +27,10 @@ const SafetyGuide = () => {
                         <table className="items-center w-full bg-transparent border-collapse">
                             <thead>
                                 <tr>
-                                    <th className="px-12 md:px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-orange-400 text-orange-800 border-orange-700">
+                                    <th className="px-12 md:px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-violet-400 text-violet-800 border-violet-700">
                                         Preventive Measure
                                     </th>
-                                    <th className="px-12 md:px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-orange-400 text-orange-800 border-orange-700 pl-12 md:pl-6">
+                                    <th className="px-12 md:px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-violet-400 text-violet-800 border-violet-700 pl-12 md:pl-6">
                                         Explanation
                                     </th>
                                 </tr>

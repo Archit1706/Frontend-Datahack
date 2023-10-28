@@ -11,7 +11,7 @@ import { PolarArea } from 'react-chartjs-2';
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 export const data = {
-  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'violet'],
   datasets: [
     {
       label: '# of Votes',

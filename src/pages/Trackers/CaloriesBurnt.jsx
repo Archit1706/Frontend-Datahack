@@ -10,7 +10,7 @@ import { AiFillRobot } from 'react-icons/ai';
 
 const CaloriesBurnt = () => {
   const navigate = useNavigate();
-  console.log(getCalories24, getCalories7d);
+  // console.log(getCalories24, getCalories7d);
   // const weekArray = (array) => {
   //   const date = new Date();
   //   const count = 6 - date.getDay();
@@ -138,7 +138,7 @@ const CaloriesBurnt = () => {
     }]
   });
   /*useEffect(() => {
-    fetch("https://backend.sidd065.repl.co/api/info/getcalories",{
+    fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/info/getcalories",{
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

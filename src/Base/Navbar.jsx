@@ -44,13 +44,13 @@ export default function Navbar(props) {
               <img src={Web} className="h-8 w-8" />
               <Link
                 to="/"
-                className="text-orange-600 text-md text-xl hover:text-orange-600 font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap"
+                className="text-violet-600 text-md text-xl hover:text-violet-600 font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap"
               >
                 Power Up
               </Link>
             </div>
             <button
-              className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none hover:text-orange-500"
+              className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none hover:text-violet-500"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
@@ -69,7 +69,7 @@ export default function Navbar(props) {
                 <div className="flex items-center">
                   <Link to='/dashboard'>
                     <button
-                      className="bg-inherit text-gray-700 hover:text-white hover:bg-orange-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150"
+                      className="bg-inherit text-gray-700 hover:text-white hover:bg-violet-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150"
                     >
                       Dashboard
                     </button>
@@ -85,7 +85,7 @@ export default function Navbar(props) {
                 <div className="flex items-center">
                   <Link to='/exercise'>
                     <button
-                      className="bg-inherit text-gray-700 hover:text-white hover:bg-orange-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150"
+                      className="bg-inherit text-gray-700 hover:text-white hover:bg-violet-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150"
                     >
                       Exercise
                     </button>
@@ -97,7 +97,7 @@ export default function Navbar(props) {
                 <div className="flex items-center">
                   <Link to='/store'>
                     <button
-                      className="bg-inherit text-gray-700 hover:text-white hover:bg-orange-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150"
+                      className="bg-inherit text-gray-700 hover:text-white hover:bg-violet-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150"
                     >
                       Store
                     </button>
@@ -109,7 +109,7 @@ export default function Navbar(props) {
                 <div className="flex items-center">
                   <Link to='/leaderboard'>
                     <button
-                      className="bg-inherit text-gray-700 hover:text-white hover:bg-orange-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150"
+                      className="bg-inherit text-gray-700 hover:text-white hover:bg-violet-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150"
                     >
                       Leaderboard
                     </button>
@@ -121,7 +121,7 @@ export default function Navbar(props) {
                 <div className="flex items-center">
                   <Link to='/events'>
                     <button
-                      className="bg-inherit text-gray-700 hover:text-white hover:bg-orange-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150"
+                      className="bg-inherit text-gray-700 hover:text-white hover:bg-violet-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150"
                     >
                       Events
                     </button>
@@ -132,7 +132,7 @@ export default function Navbar(props) {
               <li className="add-button">
                 <div className="flex items-center">
                   <button
-                    className="bg-inherit text-gray-700 hover:text-white hover:bg-orange-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150"
+                    className="bg-inherit text-gray-700 hover:text-white hover:bg-violet-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150"
                   >
                     Install App
                   </button>

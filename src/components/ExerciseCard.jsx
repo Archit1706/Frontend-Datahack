@@ -11,7 +11,7 @@ const ExerciseCard = ({exercise, index}) => {
           <img src={exercise.link} alt={exercise.name} className="" />
         </div>
         
-        <div className="flex flex-col justify-center rounded-full bg-orange-500 aspect-square w-64 p-2 mx-4 border-8 shadow-md border-white border-solid">
+        <div className="flex flex-col justify-center rounded-full bg-violet-500 aspect-square w-64 p-2 mx-4 border-8 shadow-md border-white border-solid">
           {exercise.sets!=0?<><div>
             <p className="text-lg tracking-wide text-white">{"Sets: "}{exercise.sets}</p>
           </div>
@@ -24,7 +24,7 @@ const ExerciseCard = ({exercise, index}) => {
         </div>
         
       </div>
-      <div className="rounded-lg p-4 bg-orange-500">
+      <div className="rounded-lg p-4 bg-violet-500">
         <p className="text-2xl font-bold tracking-wider text-white">{exercise.name}</p>
         {exercise.steps && exercise.steps[0] != "" && exercise.steps.map((step, id) => {
           return (

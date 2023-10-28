@@ -3,8 +3,9 @@
 }
 
 .u-section-1 {
-  background-image: url("/src/images/028e1d5b-de57-9454-1af2-5ae31d24119d.png");
-  background-position: 50% 50%;
+  /* background-image: url("/src/images/028e1d5b-de57-9454-1af2-5ae31d24119d.png");
+  background-position: 50% 50%; */
+  background-color: #c759ff;
 }
 
 .u-section-1 .u-sheet-1 {

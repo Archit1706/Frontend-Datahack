@@ -54,7 +54,7 @@ const WeightTracker = () => {
     e.preventDefault();
     setMessage('Data Updated!')
     console.log(mealData)
-    fetch("https://backend.sidd065.repl.co/api/meals/add",{
+    fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/meals/add",{
 			method: "POST",
 			headers: {
 				'Content-Type': 'application/json'

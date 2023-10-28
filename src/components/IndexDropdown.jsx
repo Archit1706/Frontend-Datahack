@@ -20,7 +20,7 @@ const IndexDropdown = () => {
   return (
     <>
       <a
-        className="bg-inherit text-gray-700 hover:text-white hover:bg-orange-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+        className="bg-inherit text-gray-700 hover:text-white hover:bg-violet-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
         ref={btnDropdownRef}
         onClick={(e) => {
           e.preventDefault();

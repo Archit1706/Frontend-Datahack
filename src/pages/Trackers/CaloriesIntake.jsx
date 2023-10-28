@@ -12,7 +12,7 @@ import "./Charts.css";
 import { FaPlus, FaMinus } from 'react-icons/fa';
 
 const CaloriesIntake = () => {
-  console.log(getCalories24, getCalories7d);
+  // console.log(getCalories24, getCalories7d);
   const weekArray = (array) => {
     const date = new Date();
     const count = 6 - date.getDay();

@@ -204,7 +204,7 @@ const Posture = () => {
                                     <button
                                         key={index}
                                         onClick={() => setSelectedWorkout(workout.name)}
-                                        className={`${workout.name === selectedWorkout ? "bg-orange-500 text-white" : "bg-white hover:bg-gray-100 text-gray-800"} font-semibold py-2 px-4 border border-gray-400 rounded shadow`}
+                                        className={`${workout.name === selectedWorkout ? "bg-violet-500 text-white" : "bg-white hover:bg-gray-100 text-gray-800"} font-semibold py-2 px-4 border border-gray-400 rounded shadow`}
                                     >
                                         {workout.name}
                                     </button>
@@ -215,7 +215,7 @@ const Posture = () => {
                     {/* Submit button */}
                     <button
                         onClick={handleSubmit}
-                        className='bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded-lg'>
+                        className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded-lg'>
                         Submit
                     </button>
                 </div>

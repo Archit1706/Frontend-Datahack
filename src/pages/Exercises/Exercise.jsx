@@ -46,7 +46,7 @@ const Exercise = () => {
 
           <div className="md:w-full max-w-[250px] bg-gray-100 rounded-lg hover:scale-105 ease-in-out duration-500 m-2 p-2 hover:text-red-500">
             <div className="w-full flex flex-col items-center text-center p-5 bg-transparent rounded-lg flex items-center justify-between">
-              <div className="rounded-full bg-orange-500 p-4">
+              <div className="rounded-full bg-violet-500 p-4">
                 <img src={Chest} alt="Legs, Triceps, Calves" className='h-10 w-10' />
               </div>
               <h3 className="my-2 text-black text-md font-bold tracking-widest title-font mb-1 uppercase pt-4">
@@ -55,13 +55,13 @@ const Exercise = () => {
               <p className="flex justify-center">
                 This workout focuses on strengthening and toning your chest, abdominal and back muscles, giving you a well rounded and defined physique.
               </p>
-              <button className="min-w-[40px] text-white bg-orange-500 hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-orange-700" onClick={() => { navigate("/exercise/chest-abs-back") }}>Start</button>
+              <button className="min-w-[40px] text-white bg-violet-500 hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-violet-700" onClick={() => { navigate("/exercise/chest-abs-back") }}>Start</button>
             </div>
           </div>
 
           <div className="md:w-full max-w-[250px] bg-gray-100 rounded-lg hover:scale-105 ease-in-out duration-500 m-2 p-2 hover:text-red-500">
             <div className="w-full flex flex-col items-center text-center p-5 bg-transparent rounded-lg flex items-center justify-between">
-              <div className="rounded-full bg-orange-500 p-4">
+              <div className="rounded-full bg-violet-500 p-4">
                 <img src={Leg} alt="Legs, Triceps, Calves" className='h-10 w-10' />
               </div>
               <h3 className="my-2 text-black text-md font-bold tracking-widest title-font mb-1 uppercase pt-4">
@@ -70,13 +70,13 @@ const Exercise = () => {
               <p className="flex justify-center">
                 This routine is designed to challenge and tone your lower body, upper arms and lower legs.
               </p>
-              <button className="min-w-[40px] text-white bg-orange-500 hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-orange-700" onClick={() => { navigate("/exercise/legs-triceps-calves") }}>Start</button>
+              <button className="min-w-[40px] text-white bg-violet-500 hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-violet-700" onClick={() => { navigate("/exercise/legs-triceps-calves") }}>Start</button>
             </div>
           </div>
 
           <div className="md:w-full max-w-[250px] bg-gray-100 rounded-lg hover:scale-105 ease-in-out duration-500 m-2 p-2 hover:text-red-500">
             <div className="w-full flex flex-col items-center text-center p-5 bg-transparent rounded-lg flex items-center justify-between">
-              <div className="rounded-full bg-orange-500 p-4">
+              <div className="rounded-full bg-violet-500 p-4">
                 <img src={Muscle} alt="Shoulders, Biceps, Forearms" className='h-10 w-10' />
               </div>
               <h3 className="my-2 text-black text-md font-bold tracking-widest title-font mb-1 uppercase pt-4">
@@ -85,13 +85,13 @@ const Exercise = () => {
               <p className="flex justify-center">
                 This workout is designed to strengthen and tone the arm muscles, giving you a well rounded upper body workout.
               </p>
-              <button className="min-w-[40px] text-white bg-orange-500 hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-orange-700" onClick={() => { navigate("/exercise/shoulders-biceps-forearms") }}>Start</button>
+              <button className="min-w-[40px] text-white bg-violet-500 hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-violet-700" onClick={() => { navigate("/exercise/shoulders-biceps-forearms") }}>Start</button>
             </div>
           </div>
 
           <div className="md:w-full max-w-[250px] bg-gray-100 rounded-lg hover:scale-105 ease-in-out duration-500 m-2 p-2 hover:text-red-500">
             <div className="w-full flex flex-col items-center text-center p-5 bg-transparent rounded-lg flex items-center justify-between">
-              <div className="rounded-full bg-orange-500 p-4">
+              <div className="rounded-full bg-violet-500 p-4">
                 <img src={Heart} alt="Cardio" className='h-10 w-10' />
               </div>
               <h3 className="my-2 text-black text-md font-bold tracking-widest title-font mb-1 uppercase pt-4">
@@ -100,7 +100,7 @@ const Exercise = () => {
               <p className="flex justify-center">
                 This workout is designed to strengthen and tone the arm muscles, giving you a well rounded upper body workout.
               </p>
-              <button className="min-w-[40px] text-white bg-orange-500 hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-orange-700" onClick={() => { navigate("/exercise/cardio") }}>Start</button>
+              <button className="min-w-[40px] text-white bg-violet-500 hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-violet-700" onClick={() => { navigate("/exercise/cardio") }}>Start</button>
             </div>
           </div>
         </div>
