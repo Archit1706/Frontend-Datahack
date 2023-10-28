@@ -64,6 +64,7 @@ import Leaderboard from './pages/Leaderboard';
 import Events from './pages/Events';
 import Workout from "./pages/Workout/Workout";
 import Posture from "./pages/Posture/Posture";
+import Consent from "./pages/Consent";
 
 export default function App() {
 
@@ -305,6 +306,14 @@ export default function App() {
 
           <Navbar />
           <Posture />
+          <Footer />
+
+        </>} />
+
+        <Route exact path="/consent" element={<>
+
+          <Navbar />
+          <Consent />
           <Footer />
 
         </>} />

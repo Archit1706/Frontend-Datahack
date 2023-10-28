@@ -20,7 +20,7 @@ const Product = () => {
   }, []);
   const prod = products.find((product) => product.id == id)
   const handleClick = (e) => {
-    fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/users/buy", {
+    fetch("https://datahack-backend.onrender.com/api/users/buy", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

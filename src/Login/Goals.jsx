@@ -19,7 +19,7 @@ export default function Goals() {
     try {
       console.log(veg, vegan, condition)
       if (weight && height && stepGoal && calGoal && weightGoal) {
-        let res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/users/goals", {
+        let res = await fetch("https://datahack-backend.onrender.com/api/users/goals", {
           method: "POST",
           headers: {
             'Content-Type': 'application/json'

@@ -13,7 +13,7 @@ export default function Signin() {
     console.log(email, pass);
     try {
       if (email && pass){
-			let res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/users/login", {
+			let res = await fetch("https://datahack-backend.onrender.com/api/users/login", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

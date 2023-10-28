@@ -21,7 +21,7 @@ export default function GetFriendData(props) {
     async function fetchData() {
       const userid = props.id;
       let email = '';
-      let res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/users/find", {
+      let res = await fetch("https://datahack-backend.onrender.com/api/users/find", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ export default function GetFriendData(props) {
         email = resJson.email;
       }//2
       props.update(resJson.data);
-      res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/info/getCalories", {
+      res = await fetch("https://datahack-backend.onrender.com/api/info/getCalories", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ export default function GetFriendData(props) {
         localStorage.setItem('friendcal24h', resJson.sum);
       }//3
       props.update(resJson.data);
-      res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/info/getSteps", {
+      res = await fetch("https://datahack-backend.onrender.com/api/info/getSteps", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -73,7 +73,7 @@ export default function GetFriendData(props) {
         localStorage.setItem('friendstep24h', resJson.sum);
       }//5
       props.update(resJson.data);
-      res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/meals/getdetails", {
+      res = await fetch("https://datahack-backend.onrender.com/api/meals/getdetails", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -88,7 +88,7 @@ export default function GetFriendData(props) {
         localStorage.setItem('friendfoodCal', resJson.calories);
       }//7
       props.update(resJson.data);
-      res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/friend/if-competition", {
+      res = await fetch("https://datahack-backend.onrender.com/api/friend/if-competition", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

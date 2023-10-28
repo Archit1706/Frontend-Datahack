@@ -180,7 +180,7 @@ const Workout = () => {
                     // });
                     fetch(
                         // `${process.env.NEXT_PUBLIC_BACKEND_URL}/get_image?${params}`,
-                        `https://2dc8-136-232-1-174.ngrok-free.app/api/get_image`,
+                        `https://datahack-backend.onrender.com/api/get_image`,
                         {
                             method: "POST",
                             headers: {

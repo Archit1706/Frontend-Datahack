@@ -1,68 +1,88 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { RxCross2 } from 'react-icons/rx'
+import Temp from '../../assets/food/banana.jpg'
+import ReactPlayer from 'react-player'
+
 
 const workouts = [
     {
         id: 1,
-        name: 'Pushups',
-        description: 'Pushups are a common calisthenics exercise performed in a prone position by raising and lowering the body using the arms.',
-        image: 'https://images.unsplash.com/photo-1581093457331-9c9c6a7b5c6e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHVzaHVwc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80'
+        name: 'Planks',
+        value: 'plank',
+        description: 'The plank is an isometric core strength exercise that involves maintaining a position similar to a push-up for the maximum possible time.',
+        image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
     },
     {
         id: 2,
-        name: 'Squats',
+        value: 'bicep_curl',
+        name: 'Bicep Curls',
+        description: 'Biceps curls are one of the most popular exercises to build arm strength and muscle definition.',
+        image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
+    },
+    {
+        id: 3,
+        name: 'squat',
         description: 'A squat is a strength exercise in which the trainee lowers their hips from a standing position and then stands back up.',
         image: 'https://cdn.pixabay.com/photo/2015/07/30/17/24/humans-868695_960_720.jpg'
     },
     {
-        id: 3,
-        name: 'Pullups',
-        description: 'A pull-up is an upper-body strength exercise. The pull-up is a closed-chain movement where the body is suspended by the hands and pulls up.',
-        image: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-pullup.jpg?w=1200&h=1200&crop=1'
-    },
-    {
         id: 4,
-        name: 'Planks',
-        description: 'The plank is an isometric core strength exercise that involves maintaining a position similar to a push-up for the maximum possible time.',
+        name: 'Lunges',
+        value: 'lunge',
+        description: 'A lunge can refer to any position of the human body where one leg is positioned forward with knee bent and foot flat on the ground while the other leg is positioned behind.',
         image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
     },
     {
         id: 5,
         name: 'Crunches',
+        value: 'crunch',
         description: 'The basic crunch is a abdominal exercise in a strength-training program. This move isolates the abdominal muscles.',
         image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
     },
     {
         id: 6,
-        name: 'Lunges',
-        description: 'A lunge can refer to any position of the human body where one leg is positioned forward with knee bent and foot flat on the ground while the other leg is positioned behind.',
-        image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
+        name: 'Pushups',
+        value: 'pushup',
+        description: 'Pushups are a common calisthenics exercise performed in a prone position by raising and lowering the body using the arms.',
+        image: 'https://images.unsplash.com/photo-1581093457331-9c9c6a7b5c6e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHVzaHVwc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80'
+
     },
     // add more workouts here
     {
         id: 7,
         name: 'Jumping Jacks',
+        value: 'jumping_jacks',
         description: 'A jumping jack is a physical jumping exercise performed by jumping to a position with the legs spread wide and the hands going overhead.',
         image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
     },
     {
         id: 8,
         name: 'Burpees',
+        value: 'burpee',
         description: 'The burpee, or squat thrust, is a full body exercise used in strength training and as an aerobic exercise.',
         image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
     },
     {
         id: 9,
         name: 'Side Planks',
+        value: 'side_plank',
         description: 'The side plank is a bodyweight core strength exercise that improves shoulder stability, core strength, and balance.',
         image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
     },
     {
         id: 10,
         name: 'Bicycle Crunches',
+        value: 'bicycle_crunch',
         description: 'The bicycle crunch is an excellent exercise for building abdominal strength and toning your thighs.',
         image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
+    },
+    {
+        id: 11,
+        name: 'Pullups',
+        value: 'pullup',
+        description: 'A pull-up is an upper-body strength exercise. The pull-up is a closed-chain movement where the body is suspended by the hands and pulls up.',
+        image: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-pullup.jpg?w=1200&h=1200&crop=1'
     }
 ]
 const Posture = () => {
@@ -73,6 +93,8 @@ const Posture = () => {
     const [selectedWorkout, setSelectedWorkout] = useState(null);
 
     const [loading, setLoading] = useState(false);
+
+    const [result, setResult] = useState(null);
 
     const handleSubmit = async () => {
         if (!video) {
@@ -98,23 +120,64 @@ const Posture = () => {
 
 
 
-            // const formData = new FormData();
-            // formData.append("exercise_type", selectedWorkout);
-            // formData.append("upoadFile", video);
+            const formData = new FormData();
+            formData.append("exercise_type", selectedWorkout);
+            formData.append("file", video);
 
-            // const res = await axios.post("http://localhost:5000/api/posture", formData);
-            // console.log(res.data);
+            const res = await axios.post("https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app/upload-video?exercise_type=" + selectedWorkout, formData);
+            console.log(res.data);
 
-            setTimeout(() => {
-                console.log("done");
-                setLoading(false);
-            }, 10000);
+            /*
+            {
+    "type": "plank",
+    "processed": true,
+    "file_name": "http://localhost:8000/videos/video1.mp4",
+    "details": [
+        {
+            "stage": "low back",
+            "frame": "http://localhost:8000/static/images/video_20231028201303_0.jpg",
+            "timestamp": 5
+        },
+        {
+            "stage": "high back",
+            "frame": "http://localhost:8000/static/images/video_20231028201303_1.jpg",
+            "timestamp": 9
+        }
+    ]
+}
+*/
 
-        }catch (e) {
+            // setTimeout(() => {
+            //     console.log("done");
+            //     setResult({
+            //         "type": "plank",
+            //         "processed": true,
+            //         "file_name": "/videos/video1.mp4",
+            //         "details": [
+            //             {
+            //                 "stage": "low back",
+            //                 "frame": "/static/images/video_20231028203253_0.jpg",
+            //                 "timestamp": 5
+            //             },
+            //             {
+            //                 "stage": "high back",
+            //                 "frame": "/static/images/video_20231028203253_1.jpg",
+            //                 "timestamp": 9
+            //             }
+            //         ]
+            //     });
+            //     setLoading(false);
+            // }, 5000);
+            setResult(res.data);
+            setLoading(false);
+
+        } catch (e) {
             console.log(e);
             setLoading(false);
         }
     }
+
+    console.log("hehe", result);
 
     return (
         <section
@@ -124,7 +187,7 @@ const Posture = () => {
 
             <div className='flex gap-8 w-full border border-gray-300 border-solid p-2 md:p-8 rounded-2xl'>
 
-                <div className="flex justify-center w-1/2 mx-auto sm:max-w-lg">
+                <div className="flex justify-center w-1/2 sm:max-w-lg">
 
                     {
                         video ? (
@@ -203,8 +266,9 @@ const Posture = () => {
                                 return (
                                     <button
                                         key={index}
-                                        onClick={() => setSelectedWorkout(workout.name)}
-                                        className={`${workout.name === selectedWorkout ? "bg-violet-500 text-white" : "bg-white hover:bg-gray-100 text-gray-800"} font-semibold py-2 px-4 border border-gray-400 rounded shadow`}
+                                        onClick={() => setSelectedWorkout(workout.value)}
+                                        className={`${selectedWorkout === workout.value
+                                            ? "bg-violet-500 text-white" : "bg-white hover:bg-gray-100 text-gray-800"} font-semibold py-2 px-4 border border-gray-400 rounded shadow`}
                                     >
                                         {workout.name}
                                     </button>
@@ -220,8 +284,159 @@ const Posture = () => {
                     </button>
                 </div>
             </div>
+
+            {
+                loading ? (
+                    <div className='flex flex-col items-center justify-center gap-4'>
+                        <h3 className='text-2xl font-bold'>Processing...</h3>
+                        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+                    </div>
+                ) : (
+                    result && result?.file_name ? (
+                        <div className='flex items-start gap-8 w-full border border-gray-300 border-solid p-2 md:p-8 rounded-2xl relative'>
+                            {/* Video */}
+                            <div className='w-2/3'>
+                                {/* <VideoPlayer url={result.file_name} /> */}
+                                {/* <ReactPlayer url={result.file_name} /> */}
+                                <video
+                                    className="w-full h-full"
+                                    src={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" + result.file_name}
+                                    controls
+                                />
+                            </div>
+
+                            {/* Horizontali scrollable slider having multiple images */}
+                            <div className='absolute top-0 right-0 w-1/3 p-2 md:p-8 h-full'>
+                                <div className='flex flex-col gap-4 overflow-y-auto scrollbar-hide h-full'>
+                                    {
+                                        result?.details?.map((obj, index) => {
+                                            return (
+                                                <div
+                                                    key={index}
+                                                    className='flex flex-col gap-4 rounded-lg shadow-lg w-full max-h-60 border '
+                                                >
+                                                    <div
+                                                        key={index}
+                                                        className='rounded-lg shadow-lg w-full max-h-40 flex items-center justify-center overflow-hidden'
+                                                    >
+                                                        {/*<img
+                                                            src={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app"+obj?.frame}
+                                                            alt={obj.stage}
+                                                            className='w-full object-cover'
+                                            />*/}
+
+                                                        <iframe
+                                                            src={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" + obj?.frame}
+                                                            className='w-full h-full'
+                                                        />
+                                                        {/* <ImageDisplay url={obj?.frame} alt={obj?.stage} /> */}
+                                                    </div>
+
+                                                    <div className='flex flex-col justify-between w-full p-4'>
+                                                        <p className='text-sm font-bold w-full'
+                                                            style={{
+                                                                marginBlock: '0'
+                                                            }}
+                                                        >{
+                                                                obj?.stage
+                                                            }</p>
+                                                        <p
+                                                            style={{
+                                                                marginBlock: '0'
+                                                            }}
+                                                            className='text-gray-500 text-sm'>{obj?.timestamp} seconds</p>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    ) : (
+                        <></>
+                    )
+                )
+            }
         </section>
     )
 }
 
 export default Posture
+
+
+// const VideoPlayer = ({ url }) => {
+
+//     const [video, setVideo] = useState(null);
+
+//     //fetch video from video url and set it to video state
+//     useEffect(()=>{
+//         axios.get(url, {
+//             headers: {
+//                 "ngrok-skip-browser-warning": "69420",
+//             },
+//         })
+//         .then(res=>{
+//             console.log(res);
+//             setVideo(res.data);
+//         })
+//         .catch(err=>{
+//             console.log(err);
+//         })
+//     })
+//     return (
+//         <div className='relative w-full h-full'>
+//             {
+//                 video ? (
+//                     <video
+//                         className='w-full h-full'
+//                         src={URL.createObjectURL(video)}
+//                         controls
+//                     />
+//                 ) : (
+//                     <div className='flex items-center justify-center w-full h-full'>
+//                         <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+//                     </div>
+//                 )
+//             }
+//         </div>
+//     )
+// }
+
+
+// const ImageDisplay = ({ url, alt }) => {
+//     const [image, setImage] = useState(null);
+
+//     //fetch image from image url and set it to image state
+//     useEffect(()=>{
+//         axios.get(url, {
+//             headers: {
+//                 "ngrok-skip-browser-warning": "6024",
+//             },
+//         })
+//         .then(res=>{
+//             console.log(res);
+//             setImage(res.data);
+//         })
+//         .catch(err=>{
+//             console.log(err);
+//         })
+//     })
+//     return (
+//         <div className='relative w-full h-full'>
+//             {
+//                 image ? (
+//                     <img
+//                         src={`data:image/jfif;base64, ${image}`}
+//                         alt={alt}
+//                         className='w-full h-full object-cover'
+//                     />
+//                 ) : (
+//                     <div className='flex items-center justify-center w-full h-full'>
+//                         <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+//                     </div>
+//                 )
+//             }
+//         </div>
+//     )
+// }

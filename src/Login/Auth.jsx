@@ -8,7 +8,7 @@ export default function Auth() {
     const token = regex.exec(window.location.href)[1].replace('%2F','/')
     console.log(window.location.href)
     console.log(token)
-    fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/auth/setToken", {
+    fetch("https://datahack-backend.onrender.com/api/auth/setToken", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

@@ -34,7 +34,7 @@ const Profile = (props) => {
       setChallengeAccepted(true);
     } else {
       setFriend(true);
-      fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/friend/add", {
+      fetch("https://datahack-backend.onrender.com/api/friend/add", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ const Profile = (props) => {
       });
     }
     navigate('/users/' + id)
-    /*fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/friend/competition", {
+    /*fetch("https://datahack-backend.onrender.com/api/friend/competition", {
 method: "POST",
 headers: {
   'Content-Type': 'application/json'

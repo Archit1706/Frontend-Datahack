@@ -47,7 +47,7 @@ export default function GetData(props) {
       const email = localStorage.getItem("email");
       let updatedAt = ''
       //1
-      let res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/users/find", {
+      let res = await fetch("https://datahack-backend.onrender.com/api/users/find", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -78,7 +78,7 @@ export default function GetData(props) {
       }
       //2
       props.update(1)
-      res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/info/getCalories", {
+      res = await fetch("https://datahack-backend.onrender.com/api/info/getCalories", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ export default function GetData(props) {
       }//3
 			console.log(localStorage.getItem('cal24h'))
       props.update(1)
-      res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/info/getCalories", {
+      res = await fetch("https://datahack-backend.onrender.com/api/info/getCalories", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -111,7 +111,7 @@ export default function GetData(props) {
         localStorage.setItem("cal7dArray", JSON.stringify(resJson.data));
       }//4
       props.update(1)
-      res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/info/getSteps", {
+      res = await fetch("https://datahack-backend.onrender.com/api/info/getSteps", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -127,7 +127,7 @@ export default function GetData(props) {
         localStorage.setItem("step24hArray", JSON.stringify(resJson.data));
       }//5
       props.update(1)
-      res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/info/getSteps", {
+      res = await fetch("https://datahack-backend.onrender.com/api/info/getSteps", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -144,7 +144,7 @@ export default function GetData(props) {
         localStorage.setItem("step7dArray", JSON.stringify(resJson.data));
       }//6
       props.update(1)
-      res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/meals/getdetails", {
+      res = await fetch("https://datahack-backend.onrender.com/api/meals/getdetails", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -161,7 +161,7 @@ export default function GetData(props) {
         localStorage.setItem('foodFat', resJson.fats);
       }//7
       props.update(1)
-      res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/meals/weeklyCals", {
+      res = await fetch("https://datahack-backend.onrender.com/api/meals/weeklyCals", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -176,7 +176,7 @@ export default function GetData(props) {
       if (res.status === 200) {
         localStorage.setItem('calIntake7d', JSON.stringify(resJson.sum));
       }//8
-      res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/friend/search", {
+      res = await fetch("https://datahack-backend.onrender.com/api/friend/search", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -192,7 +192,7 @@ export default function GetData(props) {
       }
       props.update(1)
       //9
-      res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/users/all", {
+      res = await fetch("https://datahack-backend.onrender.com/api/users/all", {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

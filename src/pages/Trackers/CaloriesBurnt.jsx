@@ -138,7 +138,7 @@ const CaloriesBurnt = () => {
     }]
   });
   /*useEffect(() => {
-    fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/info/getcalories",{
+    fetch("https://datahack-backend.onrender.com/api/info/getcalories",{
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

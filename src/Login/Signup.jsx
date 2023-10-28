@@ -13,7 +13,7 @@ export default function Signup() {
       e.preventDefault();
       try {
         if (pass==repeat && name && email && pass && repeat){
-    			let res = await fetch("https://2dc8-136-232-1-174.ngrok-free.app/api/users/register", {
+    			let res = await fetch("https://datahack-backend.onrender.com/api/users/register", {
     				method: "POST",
     				headers: {
     					'Content-Type': 'application/json'
