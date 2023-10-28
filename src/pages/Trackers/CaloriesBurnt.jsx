@@ -155,7 +155,7 @@ const CaloriesBurnt = () => {
   console.log(hourData)*/
   return (
     <div className="bg-violet-50 -mt-4">
-      <Link to="/chat/diet"><button className="fixed bottom-20 right-6 z-50 border-none outline-none bg-violet-500 text-white cursor-pointer p-4 rounded animate-bounce hover:scale-105 hover:bg-violet-600" title="Chat with ExerciseBot"><AiFillRobot /></button></Link >
+      <Link to="/chat/diet"><button className="fixed bottom-20 right-6 z-50 border-none outline-none bg-[#c759ff] text-white cursor-pointer p-4 rounded animate-bounce hover:scale-105 hover:bg-violet-600" title="Chat with ExerciseBot"><AiFillRobot /></button></Link >
       <div className="chartMenu">
         <p>Hourly Calories Burnt</p>
       </div>
@@ -176,7 +176,7 @@ const CaloriesBurnt = () => {
         </div>
       </div>
       <div className="flex justify-center text-center">
-        <button className="w-auto text-white bg-violet-500 hover:scale-105 ease-in-out duration-300 p-4 m-4 rounded-lg shadow-md shadow-violet-700" onClick={() => { navigate("/exercise") }}>Start Workout</button>
+        <button className="w-auto text-white bg-[#c759ff] hover:scale-105 ease-in-out duration-300 p-4 m-4 rounded-lg shadow-md shadow-violet-700" onClick={() => { navigate("/exercise") }}>Start Workout</button>
       </div>
     </div>
   )

@@ -20,7 +20,7 @@ const DashboardDropdown = () => {
   return (
     <>
       <a
-        className="bg-inherit text-gray-700 hover:text-white hover:bg-violet-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150 cursor-pointer"
+        className="bg-inherit text-gray-700 hover:text-white hover:bg-[#c759ff] text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 md:ml-3 md:mb-3 ease-linear transition-all duration-150 cursor-pointer"
         ref={btnDropdownRef}
         onClick={(e) => {
           e.preventDefault();
@@ -59,7 +59,7 @@ const DashboardDropdown = () => {
         
         <Link
           to="/trackers/calories-burnt"
-          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-violet-500 hover:text-white text-zinc-700"
+          className="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent hover:bg-[#c759ff] hover:text-white text-zinc-700"
         >
           Calories Burnt
         </Link>

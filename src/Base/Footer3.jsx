@@ -55,10 +55,10 @@ const handleClick = () => {
           <div className="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
             <div className="relative sm:w-64 w-40 sm:mr-4 mr-2">
               <label className="leading-7 text-sm text-gray-600">Email</label>
-              {/*               <input type="date" id="footer-field" name="date" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-violet-200 focus:border-violet-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" onChange={e => setDate(e.target.value)} /> */}
-              <DatePicker className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:ring-violet-200 focus:border-violet-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" selected={startDate} onChange={(date) => setStartDate(date)} />
+              {/*               <input type="date" id="footer-field" name="date" className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-violet-200 focus:border-[#c759ff] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" onChange={e => setDate(e.target.value)} /> */}
+              <DatePicker className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:ring-violet-200 focus:border-[#c759ff] text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" selected={startDate} onChange={(date) => setStartDate(date)} />
             </div>
-            <button onClick={handleClick} className="inline-flex text-white bg-violet-500 border-0 py-2 px-6 focus:outline-none hover:bg-violet-600 rounded">Send</button>
+            <button onClick={handleClick} className="inline-flex text-white bg-[#c759ff] border-0 py-2 px-6 focus:outline-none hover:bg-violet-600 rounded">Send</button>
             <p className="text-gray-500 text-sm mx-2 md:ml-6 md:mt-0 mt-2 sm:text-left text-center">Want to consult a Doctor?
             </p>
           </div>

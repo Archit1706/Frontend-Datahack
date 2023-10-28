@@ -85,7 +85,7 @@ const Product = () => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="w-4 h-4 text-violet-500"
+                    className="w-4 h-4 text-[#c759ff]"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -96,7 +96,7 @@ const Product = () => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="w-4 h-4 text-violet-500"
+                    className="w-4 h-4 text-[#c759ff]"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -107,7 +107,7 @@ const Product = () => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="w-4 h-4 text-violet-500"
+                    className="w-4 h-4 text-[#c759ff]"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -118,7 +118,7 @@ const Product = () => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="w-4 h-4 text-violet-500"
+                    className="w-4 h-4 text-[#c759ff]"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -129,7 +129,7 @@ const Product = () => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth="2"
-                    className="w-4 h-4 text-violet-500"
+                    className="w-4 h-4 text-[#c759ff]"
                     viewBox="0 0 24 24"
                   >
                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
@@ -184,14 +184,14 @@ const Product = () => {
                     <span className="mr-3">Color</span>
                     <button className="border-2 border-gray-300 rounded-full w-6 h-6 focus:outline-none"></button>
                     <button className="border-2 border-gray-300 ml-1 bg-gray-700 rounded-full w-6 h-6 focus:outline-none"></button>
-                    <button className="border-2 border-gray-300 ml-1 bg-violet-500 rounded-full w-6 h-6 focus:outline-none"></button>
+                    <button className="border-2 border-gray-300 ml-1 bg-[#c759ff] rounded-full w-6 h-6 focus:outline-none"></button>
                   </div>
                 )}
                 {prod.size && (
                   <div className="flex ml-6 items-center">
                     <span className="mr-3">Size</span>
                     <div className="relative">
-                      <select className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-violet-200 focus:border-violet-500 text-base pl-3 pr-10 bg-gray-200">
+                      <select className="rounded border appearance-none border-gray-300 py-2 focus:outline-none focus:ring-2 focus:ring-violet-200 focus:border-[#c759ff] text-base pl-3 pr-10 bg-gray-200">
                         {prod.size.map(
                           (size, index) => (
                             <option key={index}>
@@ -223,7 +223,7 @@ const Product = () => {
                   {prod.price}
                 </span> 
 
-                <button className="flex ml-auto text-white bg-violet-500 border-0 py-2 px-6 focus:outline-none hover:bg-violet-600 rounded" onClick={handleClick} id="checkout">
+                <button className="flex ml-auto text-white bg-[#c759ff] border-0 py-2 px-6 focus:outline-none hover:bg-violet-600 rounded" onClick={handleClick} id="checkout">
                   Buy
                 </button>
                 

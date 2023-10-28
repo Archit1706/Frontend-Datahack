@@ -47,13 +47,13 @@ export default function LandingPage() {
                 <img src={Web} className="h-8 w-8" />
                 <Link
                   to="/"
-                  className="text-violet-500 text-md text-xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap"
+                  className="text-[#c759ff] text-md text-xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap"
                 >
                   Power Up
                 </Link>
               </div>
               <button
-                className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none hover:text-violet-500"
+                className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none hover:text-[#c759ff]"
                 type="button"
                 onClick={() => setNavbarOpen(!navbarOpen)}
               >
@@ -73,7 +73,7 @@ export default function LandingPage() {
                   <li className="flex items-center">
                     <Link to='#home'>
                       <button
-                        className="bg-inherit text-gray-700 hover:text-white hover:bg-violet-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                        className="bg-inherit text-gray-700 hover:text-white hover:bg-[#c759ff] text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
                       >
                         Home
                       </button>
@@ -85,7 +85,7 @@ export default function LandingPage() {
                   <li className="flex items-center">
                     <Link to='#features'>
                       <button
-                        className="bg-inherit text-gray-700 hover:text-white hover:bg-violet-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                        className="bg-inherit text-gray-700 hover:text-white hover:bg-[#c759ff] text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
                       >
                         Features
                       </button>
@@ -97,7 +97,7 @@ export default function LandingPage() {
                   <li className="flex items-center">
                     <Link to='#join'>
                       <button
-                        className="bg-inherit text-gray-700 hover:text-white hover:bg-violet-500 text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                        className="bg-inherit text-gray-700 hover:text-white hover:bg-[#c759ff] text-sm font-bold uppercase px-4 py-2 rounded hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
                       >
                         Join
                       </button>
@@ -114,7 +114,7 @@ export default function LandingPage() {
                 <li className="flex items-center">
                   <Link to={'/signin'}>
                     <button
-                      className="bg-violet-500 text-white active:bg-violet-600 text-sm font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                      className="bg-[#c759ff] text-white active:bg-violet-600 text-sm font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
                       type="button"
                     >
                       Signin

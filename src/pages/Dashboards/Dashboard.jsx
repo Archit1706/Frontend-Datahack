@@ -109,7 +109,7 @@ const Dashboard = () => {
             </div>
           </Link>
 
-          <Link to="/trackers/calories-burnt" className="hover:text-violet-500">
+          <Link to="/trackers/calories-burnt" className="hover:text-[#c759ff]">
             <div className="md:w-full min-w-[250px] bg-gray-100 rounded-lg hover:scale-105 ease-in-out duration-500">
               <div className="w-full flex flex-col items-center text-center p-5 bg-transparent rounded-lg flex items-center justify-between">
                 <div className="mt-4">
@@ -122,7 +122,7 @@ const Dashboard = () => {
                   <p className="font-bold text-xl">{Number(localStorage.getItem("cal24h")).toFixed(2)}{" Cal"}</p>
                 </div>
                 <p className="block relative rounded overflow-hidden">
-                  <RadialChart color={"text-violet-500"} value={(localStorage.getItem("cal24h") * 100 / localStorage.getItem("calGoal")).toFixed(2)} />
+                  <RadialChart color={"text-[#c759ff]"} value={(localStorage.getItem("cal24h") * 100 / localStorage.getItem("calGoal")).toFixed(2)} />
                 </p>
               </div>
             </div>

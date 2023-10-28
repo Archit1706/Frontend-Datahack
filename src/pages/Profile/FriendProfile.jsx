@@ -283,7 +283,7 @@ body: JSON.stringify({
                     </div>
                     <p className="block relative rounded overflow-hidden">
                       <RadialChart
-                        color={"text-violet-500"}
+                        color={"text-[#c759ff]"}
                         value={(
                           (localStorage.getItem(
                             "friendcal24h"
@@ -304,7 +304,7 @@ body: JSON.stringify({
 
             <div className="w-full flex items-center justify-center gap-4 mt-3">
               <button
-                className="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 hover:scale-105 ease-linear transition-all duration-150"
+                className="bg-[#c759ff] text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 hover:scale-105 ease-linear transition-all duration-150"
                 onClick={handleClick}
               >
                 {isFriend ? 'Challenge' : 'Add Friend'}

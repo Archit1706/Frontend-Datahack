@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { RxCross2 } from 'react-icons/rx'
 import Temp from '../../assets/food/banana.jpg'
 import ReactPlayer from 'react-player'
+import { WebcamRecord } from '../../components/WebcamRecord';
 
 
 const workouts = [
@@ -100,6 +101,8 @@ const Posture = () => {
 
     const [timestamp, setTimestamp] = useState(0);
 
+    const [openModal, setOpenModal] = useState(false);
+
     const handleSubmit = async () => {
         if (!video) {
             alert("Please select a video");
@@ -124,14 +127,14 @@ const Posture = () => {
 
 
 
-            // const formData = new FormData();
-            // formData.append("exercise_type", selectedWorkout);
-            // formData.append("file", video);
+            const formData = new FormData();
+            formData.append("exercise_type", selectedWorkout);
+            formData.append("file", video);
 
-            // const res = await axios.post("https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app/upload-video?exercise_type=" + selectedWorkout, formData);
-            // console.log(res.data);
-            //  setResult(res.data);
-            // setLoading(false);
+            const res = await axios.post("https://1150-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload-video?exercise_type=" + selectedWorkout, formData);
+            console.log(res.data);
+             setResult(res.data);
+            setLoading(false);
 
             /*
             {
@@ -153,27 +156,27 @@ const Posture = () => {
 }
 */
 
-            setTimeout(() => {
-                console.log("done");
-                setResult({
-                    "type": "plank",
-                    "processed": true,
-                    "file_name": "/videos/video1.mp4",
-                    "details": [
-                        {
-                            "stage": "low back",
-                            "frame": "/static/images/video_20231028203253_0.jpg",
-                            "timestamp": 5
-                        },
-                        {
-                            "stage": "high back",
-                            "frame": "/static/images/video_20231028203253_1.jpg",
-                            "timestamp": 9
-                        }
-                    ]
-                });
-                setLoading(false);
-            }, 5000);
+            // setTimeout(() => {
+            //     console.log("done");
+            //     setResult({
+            //         "type": "plank",
+            //         "processed": true,
+            //         "file_name": "/videos/video1.mp4",
+            //         "details": [
+            //             {
+            //                 "stage": "low back",
+            //                 "frame": "/static/images/video_20231028203253_0.jpg",
+            //                 "timestamp": 5
+            //             },
+            //             {
+            //                 "stage": "high back",
+            //                 "frame": "/static/images/video_20231028203253_1.jpg",
+            //                 "timestamp": 9
+            //             }
+            //         ]
+            //     });
+            //     setLoading(false);
+            // }, 5000);
 
 
         } catch (e) {
@@ -185,7 +188,9 @@ const Posture = () => {
     useEffect(() => {
         if (videoRef.current) {
             // Set the current time of the video when the timestamp changes
-            videoRef.current.seekTo(timestamp, 'seconds');
+            console.log("seeking to", timestamp);
+            videoRef.current.seekTo(parseFloat(timestamp), 'seconds');
+            console.log(videoRef.current)
             // videoRef.current.pause()
         }
     }, [timestamp]);
@@ -196,6 +201,15 @@ const Posture = () => {
         <section
             className='flex flex-col gap-8 min-h-screen w-full p-2 md:py-6 lg::py-8 md:px-16'
         >
+
+            {
+                openModal && (
+                    <WebcamRecord
+                        toggleModal={() => setOpenModal(false)}
+                        setVideo={setVideo}
+                    />
+                )
+            }
             <h3 className='text-xl md:text-3xl text-black font-bold'>Posture Detection</h3>
 
             <div className='flex flex-col md:flex-row gap-8 w-full border border-gray-300 border-solid p-2 md:p-8 rounded-2xl'>
@@ -245,7 +259,12 @@ const Posture = () => {
                                     </svg>
                                     <p className="mb-2 text-sm text-gray-500">
                                         <span className="font-semibold">Click to upload Video</span>{" "}
-                                        or drag and drop
+                                        or <span
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                setOpenModal(true);
+                                            }}
+                                            className='px-2 py-1 rounded-md bg-[#c759ff] text-white'>Record</span>
                                     </p>
                                     <p className="text-xs text-gray-500">
                                         MP4, WebM, AVI, MPG, MOV, FLV, WMV, 3GP
@@ -281,7 +300,7 @@ const Posture = () => {
                                         key={index}
                                         onClick={() => setSelectedWorkout(workout.value)}
                                         className={`${selectedWorkout === workout.value
-                                            ? "bg-violet-500 text-white" : "bg-white hover:bg-gray-100 text-gray-800"} font-semibold py-2 px-4 border border-gray-400 rounded shadow`}
+                                            ? "bg-[#c759ff] text-white" : "bg-white hover:bg-gray-100 text-gray-800"} font-semibold py-2 px-4 border border-gray-400 rounded shadow`}
                                     >
                                         {workout.name}
                                     </button>
@@ -292,7 +311,7 @@ const Posture = () => {
                     {/* Submit button */}
                     <button
                         onClick={handleSubmit}
-                        className='bg-violet-500 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded-lg'>
+                        className='bg-[#c759ff] hover:bg-violet-700 text-white font-bold py-2 px-4 rounded-lg'>
                         Submit
                     </button>
                 </div>
@@ -313,17 +332,18 @@ const Posture = () => {
                                 {/* <ReactPlayer url={result.file_name} /> */}
                                 {/* <video
                                     className="w-full h-full"
-                                    src={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" + result.file_name}
+                                    src={"https://1150-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + result.file_name}
                                     controls
                                     // start video from 5 seconds
                                     ref={videoRef}
                                 /> */}
                                 <ReactPlayer
-                                    url={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" + result.file_name}
+                                    url={"https://1150-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + result.file_name}
                                     controls
                                     muted
                                     width="100%"
                                     height="100%"
+                                    // ref={videoRef}
                                     ref={videoRef}
                                 />
                             </div>
@@ -337,22 +357,23 @@ const Posture = () => {
                                                 <div
                                                     key={index}
                                                     onClick={() => {
+                                                        console.log(obj.timestamp);
                                                         setTimestamp(obj.timestamp);
                                                     }}
-                                                    className={`flex flex-col gap-4 rounded-lg shadow-lg w-full border`}
+                                                    className={`flex flex-col gap-4 rounded-lg shadow-lg w-full border cursor-pointer`}
                                                 >
                                                     <div
                                                         key={index}
                                                         className='rounded-lg shadow-lg w-full max-h-60 flex items-center justify-center overflow-hidden'
                                                     >
                                                         <img
-                                                            src={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" + obj?.frame}
+                                                            src={"https://1150-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + obj?.frame}
                                                             alt={obj.stage}
                                                             className='w-full aspect-video'
                                                         />
 
                                                         {/* <iframe
-                                                            src={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" + obj?.frame}
+                                                            src={"https://1150-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + obj?.frame}
                                                             className='w-full h-full'
                                                         /> */}
                                                         {/* <ImageDisplay url={obj?.frame} alt={obj?.stage} /> */}
