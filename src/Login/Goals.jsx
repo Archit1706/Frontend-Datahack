@@ -18,23 +18,26 @@ export default function Goals() {
         try {
             console.log(veg, vegan, condition);
             if (weight && height && stepGoal && calGoal && weightGoal) {
-                let res = await fetch("http://localhost:5000/api/users/goals", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        email: localStorage.getItem("email"),
-                        weight: weight,
-                        height: height,
-                        stepGoal: stepGoal,
-                        calGoal: calGoal,
-                        weightGoal: weightGoal,
-                        veg: veg,
-                        vegan: vegan,
-                        condition: condition,
-                    }),
-                });
+                let res = await fetch(
+                    "https://datahack-backend.onrender.com/api/users/goals",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            email: localStorage.getItem("email"),
+                            weight: weight,
+                            height: height,
+                            stepGoal: stepGoal,
+                            calGoal: calGoal,
+                            weightGoal: weightGoal,
+                            veg: veg,
+                            vegan: vegan,
+                            condition: condition,
+                        }),
+                    }
+                );
                 let resJson = await res.json();
                 if (res.status === 200 && resJson.success) {
                     navigate("/signin");

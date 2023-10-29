@@ -47,15 +47,18 @@ export default function GetData(props) {
             const email = localStorage.getItem("email");
             let updatedAt = "";
             //1
-            let res = await fetch("http://localhost:5000/api/users/find", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userid: userid,
-                }),
-            });
+            let res = await fetch(
+                "https://datahack-backend.onrender.com/api/users/find",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        userid: userid,
+                    }),
+                }
+            );
             let resJson = await res.json();
             console.log(resJson, userid, email);
             if (res.status === 200) {
@@ -78,15 +81,18 @@ export default function GetData(props) {
             }
             //2
             props.update(1);
-            res = await fetch("http://localhost:5000/api/info/getCalories", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email: email,
-                }),
-            });
+            res = await fetch(
+                "https://datahack-backend.onrender.com/api/info/getCalories",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                    }),
+                }
+            );
             resJson = await res.json();
             if (res.status === 200) {
                 localStorage.setItem("cal24h", hourSum(resJson.data));
@@ -97,16 +103,19 @@ export default function GetData(props) {
             } //3
             console.log(localStorage.getItem("cal24h"));
             props.update(1);
-            res = await fetch("http://localhost:5000/api/info/getCalories", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email: email,
-                    duration: "7d",
-                }),
-            });
+            res = await fetch(
+                "https://datahack-backend.onrender.com/api/info/getCalories",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        duration: "7d",
+                    }),
+                }
+            );
             resJson = await res.json();
             console.log(resJson);
             if (res.status === 200) {
@@ -117,15 +126,18 @@ export default function GetData(props) {
                 );
             } //4
             props.update(1);
-            res = await fetch("http://localhost:5000/api/info/getSteps", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email: email,
-                }),
-            });
+            res = await fetch(
+                "https://datahack-backend.onrender.com/api/info/getSteps",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                    }),
+                }
+            );
             resJson = await res.json();
             console.log(resJson);
             if (res.status === 200) {
@@ -136,16 +148,19 @@ export default function GetData(props) {
                 );
             } //5
             props.update(1);
-            res = await fetch("http://localhost:5000/api/info/getSteps", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email: email,
-                    duration: "7d",
-                }),
-            });
+            res = await fetch(
+                "https://datahack-backend.onrender.com/api/info/getSteps",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        duration: "7d",
+                    }),
+                }
+            );
             resJson = await res.json();
             console.log(resJson);
             if (res.status === 200) {
@@ -156,15 +171,18 @@ export default function GetData(props) {
                 );
             } //6
             props.update(1);
-            res = await fetch("http://localhost:5000/api/meals/getdetails", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userid: userid,
-                }),
-            });
+            res = await fetch(
+                "https://datahack-backend.onrender.com/api/meals/getdetails",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        userid: userid,
+                    }),
+                }
+            );
             resJson = await res.json();
             console.log(resJson);
             if (res.status === 200) {
@@ -173,15 +191,18 @@ export default function GetData(props) {
                 localStorage.setItem("foodFat", resJson.fats);
             } //7
             props.update(1);
-            res = await fetch("http://localhost:5000/api/meals/weeklyCals", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userid: userid,
-                }),
-            });
+            res = await fetch(
+                "https://datahack-backend.onrender.com/api/meals/weeklyCals",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        userid: userid,
+                    }),
+                }
+            );
             resJson = await res.json();
             console.log("This is the 7d calorie intake ↓↓↓");
             console.log(resJson);
@@ -191,15 +212,18 @@ export default function GetData(props) {
                     JSON.stringify(resJson.sum)
                 );
             } //8
-            res = await fetch("http://localhost:5000/api/friend/search", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userid: localStorage.getItem("id"),
-                }),
-            });
+            res = await fetch(
+                "https://datahack-backend.onrender.com/api/friend/search",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        userid: localStorage.getItem("id"),
+                    }),
+                }
+            );
             resJson = await res.json();
             console.log(resJson);
             if (res.status === 200) {
@@ -207,15 +231,18 @@ export default function GetData(props) {
             }
             props.update(1);
             //9
-            res = await fetch("http://localhost:5000/api/users/all", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    userid: userid,
-                }),
-            });
+            res = await fetch(
+                "https://datahack-backend.onrender.com/api/users/all",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        userid: userid,
+                    }),
+                }
+            );
             resJson = await res.json();
             console.log(resJson, userid, email);
             if (res.status === 200) {

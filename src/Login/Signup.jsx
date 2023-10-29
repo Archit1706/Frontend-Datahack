@@ -14,7 +14,7 @@ export default function Signup() {
         try {
             if (pass == repeat && name && email && pass && repeat) {
                 let res = await fetch(
-                    "http://localhost:5000/api/users/register",
+                    "https://datahack-backend.onrender.com/api/users/register",
                     {
                         method: "POST",
                         headers: {

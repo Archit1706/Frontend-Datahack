@@ -33,7 +33,7 @@ const Profile = (props) => {
             setChallengeAccepted(true);
         } else {
             setFriend(true);
-            fetch("http://localhost:5000/api/friend/add", {
+            fetch("https://datahack-backend.onrender.com/api/friend/add", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -45,7 +45,7 @@ const Profile = (props) => {
             });
         }
         navigate("/users/" + id);
-        /*fetch("http://localhost:5000/api/friend/competition", {
+        /*fetch("https://datahack-backend.onrender.com/api/friend/competition", {
 method: "POST",
 headers: {
   'Content-Type': 'application/json'

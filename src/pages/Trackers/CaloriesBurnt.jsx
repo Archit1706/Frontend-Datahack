@@ -169,7 +169,7 @@ const CaloriesBurnt = () => {
         ],
     });
     /*useEffect(() => {
-    fetch("http://localhost:5000/api/info/getcalories",{
+    fetch("https://datahack-backend.onrender.com/api/info/getcalories",{
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

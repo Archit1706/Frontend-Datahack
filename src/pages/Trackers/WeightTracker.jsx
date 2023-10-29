@@ -52,7 +52,7 @@ const WeightTracker = () => {
         e.preventDefault();
         setMessage("Data Updated!");
         console.log(mealData);
-        fetch("http://localhost:5000/api/meals/add", {
+        fetch("https://datahack-backend.onrender.com/api/meals/add", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -166,7 +166,7 @@ const Workout = () => {
                     // });
                     fetch(
                         // `${process.env.NEXT_PUBLIC_BACKEND_URL}/get_image?${params}`,
-                        `http://localhost:5000/api/get_image`,
+                        `https://datahack-backend.onrender.com/api/get_image`,
                         {
                             method: "POST",
                             headers: {
