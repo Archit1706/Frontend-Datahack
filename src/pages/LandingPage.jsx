@@ -146,7 +146,7 @@ export default function LandingPage() {
                                             className="u-border-no-bottom u-border-no-left u-border-no-right u-border-no-top u-image u-image-contain u-image-default u-image-1"
                                             data-image-width="450"
                                             data-image-height="450"
-                                            src="//images/sidelogo.png"
+                                            src="/images/sidelogo.png"
                                             data-animation-name="jackInTheBox"
                                             data-animation-duration="1250"
                                             data-animation-direction=""
@@ -223,7 +223,7 @@ export default function LandingPage() {
                                 </div>
                                 <div className="u-align-center-sm u-align-center-xl u-align-center-xs u-align-justify-lg u-align-justify-md u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                                     <div className="u-container-layout u-container-layout-2">
-                                        {/* <img className="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-contain u-image-default u-image-1" src="//images/105650-fitness-tracker.gif" alt="" data-image-width="640" data-image-height="640" data-animation-name="customAnimationIn" data-animation-duration="1250"/> */}
+                                        {/* <img className="u-expanded-width-lg u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-image u-image-contain u-image-default u-image-1" src="/images/105650-fitness-tracker.gif" alt="" data-image-width="640" data-image-height="640" data-animation-name="customAnimationIn" data-animation-duration="1250"/> */}
                                         <dotlottie-player
                                             autoplay
                                             loop
@@ -257,7 +257,7 @@ export default function LandingPage() {
                                         data-animation-duration="1250"
                                     >
                                         <img
-                                            src="//images/8645846-14a81ca0.png"
+                                            src="/images/8645846-14a81ca0.png"
                                             alt=""
                                         />
                                     </span>
@@ -279,7 +279,7 @@ export default function LandingPage() {
                                         data-animation-duration="1250"
                                     >
                                         <img
-                                            src="//images/3373118-fab08fc6.png"
+                                            src="/images/3373118-fab08fc6.png"
                                             alt=""
                                         />
                                     </span>
@@ -301,7 +301,7 @@ export default function LandingPage() {
                                         data-animation-duration="1250"
                                     >
                                         <img
-                                            src="//images/9131415-92b706d9.png"
+                                            src="/images/9131415-92b706d9.png"
                                             alt=""
                                         />
                                     </span>
@@ -323,7 +323,7 @@ export default function LandingPage() {
                                         data-animation-duration="1250"
                                     >
                                         <img
-                                            src="//images/1786614-855c592a.png"
+                                            src="/images/1786614-855c592a.png"
                                             alt=""
                                         />
                                     </span>
@@ -345,7 +345,7 @@ export default function LandingPage() {
                                         data-animation-duration="1250"
                                     >
                                         <img
-                                            src="//images/4089146-d327cead.png"
+                                            src="/images/4089146-d327cead.png"
                                             alt=""
                                         />
                                     </span>
@@ -367,7 +367,7 @@ export default function LandingPage() {
                                         data-animation-duration="1250"
                                     >
                                         <img
-                                            src="//images/5480641-a57ac235.png"
+                                            src="/images/5480641-a57ac235.png"
                                             alt=""
                                         />
                                     </span>
@@ -403,7 +403,7 @@ export default function LandingPage() {
                         alt=""
                         data-image-width="1416"
                         data-image-height="1040"
-                        src="//images/image33.png"
+                        src="/images/image33.png"
                     />
                     <div className="u-list u-list-1">
                         <div className="u-repeater u-repeater-1">

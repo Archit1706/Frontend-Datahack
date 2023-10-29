@@ -3,7 +3,7 @@
 }
 
 .u-section-1 {
-    /* background-image: url("//images/028e1d5b-de57-9454-1af2-5ae31d24119d.png");
+    /* background-image: url("/images/028e1d5b-de57-9454-1af2-5ae31d24119d.png");
   background-position: 50% 50%; */
     background-color: #c759ff;
 }
@@ -419,7 +419,7 @@
 }
 .u-section-3 {
     padding-top: 400px;
-    background-image: url("//images/ggggggg.png");
+    background-image: url("/images/ggggggg.png");
     background-position: 50% 0%;
 }
 
@@ -1072,7 +1072,7 @@
 
 .u-section-5 .u-image-1 {
     min-height: 321px;
-    background-image: url("//images/122377-health-risk-assessment.gif");
+    background-image: url("/images/122377-health-risk-assessment.gif");
     background-position: 50% 50%;
 }
 
@@ -1116,7 +1116,7 @@
 
 .u-section-5 .u-image-2 {
     min-height: 321px;
-    background-image: url("//images/89d5a5b4-bf1e-41c9-b27f-4ae25d98d65a.png");
+    background-image: url("/images/89d5a5b4-bf1e-41c9-b27f-4ae25d98d65a.png");
     background-position: 50% 50%;
 }
 
