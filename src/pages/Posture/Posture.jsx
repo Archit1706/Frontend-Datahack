@@ -128,14 +128,14 @@ const Posture = () => {
 
 
 
-            // const formData = new FormData();
-            // formData.append("exercise_type", selectedWorkout);
-            // formData.append("file", video);
+            const formData = new FormData();
+            formData.append("exercise_type", selectedWorkout);
+            formData.append("file", video);
 
-            // const res = await axios.post("https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload-video?exercise_type=" + selectedWorkout, formData);
-            // console.log(res.data);
-            // setResult(res.data);
-            // setLoading(false);
+            const res = await axios.post("https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload-video?exercise_type=" + selectedWorkout, formData);
+            console.log(res.data);
+            setResult(res.data);
+            setLoading(false);
 
             /*
             {
@@ -157,27 +157,27 @@ const Posture = () => {
 }
 */
 
-            setTimeout(() => {
-                console.log("done");
-                setResult({
-                    "type": "plank",
-                    "processed": true,
-                    "file_name": "/videos/video1.mp4",
-                    "details": [
-                        {
-                            "stage": "low back",
-                            "frame": "/static/images/video_20231028203253_0.jpg",
-                            "timestamp": 5
-                        },
-                        {
-                            "stage": "high back",
-                            "frame": "/static/images/video_20231028203253_1.jpg",
-                            "timestamp": 9
-                        }
-                    ]
-                });
-                setLoading(false);
-            }, 5000);
+            // setTimeout(() => {
+            //     console.log("done");
+            //     setResult({
+            //         "type": "plank",
+            //         "processed": true,
+            //         "file_name": "/videos/video1.mp4",
+            //         "details": [
+            //             {
+            //                 "stage": "low back",
+            //                 "frame": "/static/images/video_20231028203253_0.jpg",
+            //                 "timestamp": 5
+            //             },
+            //             {
+            //                 "stage": "high back",
+            //                 "frame": "/static/images/video_20231028203253_1.jpg",
+            //                 "timestamp": 9
+            //             }
+            //         ]
+            //     });
+            //     setLoading(false);
+            // }, 5000);
 
 
         } catch (e) {
@@ -287,6 +287,8 @@ const Posture = () => {
                                         if (e.target.files) {
                                             // @ts-ignore
                                             setVideo((prev) => e.target.files[0]);
+
+                                            setSelectedWorkout(e.target.files[0].name.split(".")[0]);
                                         }
                                     }}
                                     id="dropzone-file"
