@@ -107,6 +107,8 @@ const Posture = () => {
 
     const [timestamp, setTimestamp] = useState(0);
 
+    const [openModal, setOpenModal] = useState(false);
+
     const handleSubmit = async () => {
         if (!video) {
             alert("Please select a video");

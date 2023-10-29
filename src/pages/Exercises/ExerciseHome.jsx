@@ -15,7 +15,7 @@ const ExerciseHome = () => {
 
   return (
     <>
-      <Link to="/chat/injury"><button className="fixed bottom-20 right-6 z-50 border-none outline-none bg-violet-500 text-white cursor-pointer p-4 rounded animate-bounce hover:scale-105 hover:bg-violet-600" title="Chat with ExerciseBot"><AiFillRobot /></button></Link >
+      <Link to="/chat/injury"><button className="fixed bottom-20 right-6 z-50 border-none outline-none bg-[#c759ff] text-white cursor-pointer p-4 rounded animate-bounce hover:scale-105 hover:bg-violet-600" title="Chat with ExerciseBot"><AiFillRobot /></button></Link >
       <div className="flex flex-col justify-center items-center gap-4 p-4">
 
         <SafetyGuide />
@@ -23,7 +23,7 @@ const ExerciseHome = () => {
         <div>
           <Link to="/exercise/stretching">
             <button
-              className="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none hover:scale-105 ease-linear transition-all duration-150"
+              className="bg-[#c759ff] text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none hover:scale-105 ease-linear transition-all duration-150"
               type="button"
             >
               Start Exercising
@@ -52,7 +52,7 @@ const ExerciseHome = () => {
         </div>
         
         <button
-            className="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none hover:scale-105 ease-linear transition-all duration-150"
+            className="bg-[#c759ff] text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none hover:scale-105 ease-linear transition-all duration-150"
             type="button"
           onClick={submitHandler}
           >

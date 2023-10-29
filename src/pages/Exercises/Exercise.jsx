@@ -44,7 +44,7 @@ const Exercise = () => {
                 <div className="flex flex-wrap flex-row items-start justify-center gap-4 py-8">
                     <div className="md:w-full max-w-[250px] bg-gray-100 rounded-lg hover:scale-105 ease-in-out duration-500 m-2 p-2 hover:text-red-500">
                         <div className="w-full flex flex-col items-center text-center p-5 bg-transparent rounded-lg flex items-center justify-between">
-                            <div className="rounded-full bg-violet-500 p-4">
+                            <div className="rounded-full bg-[#c759ff] p-4">
                                 <img
                                     src={Chest}
                                     alt="Legs, Triceps, Calves"
@@ -60,7 +60,7 @@ const Exercise = () => {
                                 you a well rounded and defined physique.
                             </p>
                             <button
-                                className="min-w-[40px] text-white bg-violet-500 hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-violet-700"
+                                className="min-w-[40px] text-white bg-[#c759ff] hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-violet-700"
                                 onClick={() => {
                                     navigate("/exercise/chest-abs-back");
                                 }}
@@ -72,7 +72,7 @@ const Exercise = () => {
 
                     <div className="md:w-full max-w-[250px] bg-gray-100 rounded-lg hover:scale-105 ease-in-out duration-500 m-2 p-2 hover:text-red-500">
                         <div className="w-full flex flex-col items-center text-center p-5 bg-transparent rounded-lg flex items-center justify-between">
-                            <div className="rounded-full bg-violet-500 p-4">
+                            <div className="rounded-full bg-[#c759ff] p-4">
                                 <img
                                     src={Leg}
                                     alt="Legs, Triceps, Calves"
@@ -87,7 +87,7 @@ const Exercise = () => {
                                 your lower body, upper arms and lower legs.
                             </p>
                             <button
-                                className="min-w-[40px] text-white bg-violet-500 hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-violet-700"
+                                className="min-w-[40px] text-white bg-[#c759ff] hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-violet-700"
                                 onClick={() => {
                                     navigate("/exercise/legs-triceps-calves");
                                 }}
@@ -99,7 +99,7 @@ const Exercise = () => {
 
                     <div className="md:w-full max-w-[250px] bg-gray-100 rounded-lg hover:scale-105 ease-in-out duration-500 m-2 p-2 hover:text-red-500">
                         <div className="w-full flex flex-col items-center text-center p-5 bg-transparent rounded-lg flex items-center justify-between">
-                            <div className="rounded-full bg-violet-500 p-4">
+                            <div className="rounded-full bg-[#c759ff] p-4">
                                 <img
                                     src={Muscle}
                                     alt="Shoulders, Biceps, Forearms"
@@ -115,7 +115,7 @@ const Exercise = () => {
                                 body workout.
                             </p>
                             <button
-                                className="min-w-[40px] text-white bg-violet-500 hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-violet-700"
+                                className="min-w-[40px] text-white bg-[#c759ff] hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-violet-700"
                                 onClick={() => {
                                     navigate(
                                         "/exercise/shoulders-biceps-forearms"
@@ -129,7 +129,7 @@ const Exercise = () => {
 
                     <div className="md:w-full max-w-[250px] bg-gray-100 rounded-lg hover:scale-105 ease-in-out duration-500 m-2 p-2 hover:text-red-500">
                         <div className="w-full flex flex-col items-center text-center p-5 bg-transparent rounded-lg flex items-center justify-between">
-                            <div className="rounded-full bg-violet-500 p-4">
+                            <div className="rounded-full bg-[#c759ff] p-4">
                                 <img
                                     src={Heart}
                                     alt="Cardio"
@@ -145,7 +145,7 @@ const Exercise = () => {
                                 body workout.
                             </p>
                             <button
-                                className="min-w-[40px] text-white bg-violet-500 hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-violet-700"
+                                className="min-w-[40px] text-white bg-[#c759ff] hover:scale-105 ease-in-out duration-300 p-2 m-4 rounded-lg shadow-md shadow-violet-700"
                                 onClick={() => {
                                     navigate("/exercise/cardio");
                                 }}

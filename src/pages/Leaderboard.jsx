@@ -167,7 +167,7 @@ const Leaderboard = () => {
                                             <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                                                 <Link
                                                     to={`/users/${user._id}`}
-                                                    className="p-2 ml-4 bg-violet-400 shadow-md hover:bg-violet-500 rounded-md"
+                                                    className="p-2 ml-4 bg-violet-400 shadow-md hover:bg-[#c759ff] rounded-md"
                                                 >
                                                     <span className="mx-3 font-bold text-black">
                                                         View

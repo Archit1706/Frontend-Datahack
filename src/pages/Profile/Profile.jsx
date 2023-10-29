@@ -173,7 +173,7 @@ const Profile = (props) => {
             <div className="w-full flex items-center justify-center gap-4 mt-3">
               <Link to="/store">
                 <button
-                  className="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 hover:scale-105 ease-linear transition-all duration-150"
+                  className="bg-[#c759ff] text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 hover:scale-105 ease-linear transition-all duration-150"
                   type="button"
                 >
                   Redeem Points
@@ -181,7 +181,7 @@ const Profile = (props) => {
               </Link>
               <Link to="/goals">
                 <button
-                  className="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 hover:scale-105 ease-linear transition-all duration-150"
+                  className="bg-[#c759ff] text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 hover:scale-105 ease-linear transition-all duration-150"
                   type="button"
                 >
                   Update Goals
@@ -248,7 +248,7 @@ const Profile = (props) => {
             <p>Make friends from the Leaderboard!</p>
             <Link to="/leaderboard">
               <button
-                className="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none hover:scale-105 ease-linear transition-all duration-150"
+                className="bg-[#c759ff] text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none hover:scale-105 ease-linear transition-all duration-150"
                 type="button"
               >
                 Leaderboard

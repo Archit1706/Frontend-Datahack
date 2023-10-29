@@ -32,14 +32,14 @@ const Stretching = () => {
         <ExerciseCard exercise={exercises[currentIndex]} index={currentIndex} />
         <div className="max-w-[640px] flex flex-row justify-between gap-20 m-2 p-2">
           <button
-            className="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none hover:scale-105 ease-linear transition-all duration-150"
+            className="bg-[#c759ff] text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none hover:scale-105 ease-linear transition-all duration-150"
             type="button"
             onClick={handlePrevious}
           >
             Previous
           </button>
           <button
-            className="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none hover:scale-105 ease-linear transition-all duration-150"
+            className="bg-[#c759ff] text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none hover:scale-105 ease-linear transition-all duration-150"
             type="button"
             onClick={handleNext}
           >
@@ -52,7 +52,7 @@ const Stretching = () => {
             currentIndex >= exercises.length - 1 ? (
               <Link to="/exercise/pick-a-workout">
                 <button
-                  className="bg-violet-500 text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none hover:scale-105 ease-linear transition-all duration-150"
+                  className="bg-[#c759ff] text-white active:bg-violet-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none hover:scale-105 ease-linear transition-all duration-150"
                   type="button"
                 >
                   Start a Workout
