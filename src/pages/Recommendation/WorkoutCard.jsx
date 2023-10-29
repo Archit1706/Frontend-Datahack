@@ -7,7 +7,7 @@ const WorkoutCard = ({ name, description, url, icon }) => {
         window.scrollTo({ top: 0, behavior: "smooth" });
     }, []);
     return (
-        <div className="w-full md:w-fit bg-gray-100 rounded-lg hover:scale-105 ease-in-out duration-500 m-2 p-2 hover:text-red-500">
+        <div className="w-full bg-gray-100 rounded-lg hover:scale-105 ease-in-out duration-500 m-2 p-2 hover:text-red-500">
             <div className="w-full flex flex-col items-center text-center p-5 bg-transparent rounded-lg flex items-center justify-between">
                 <div className="rounded-full bg-violet-500 p-4">
                     <img
