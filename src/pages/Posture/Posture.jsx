@@ -23,7 +23,8 @@ const workouts = [
     },
     {
         id: 3,
-        name: 'squat',
+        name: 'Squats',
+        value: 'squat',
         description: 'A squat is a strength exercise in which the trainee lowers their hips from a standing position and then stands back up.',
         image: 'https://cdn.pixabay.com/photo/2015/07/30/17/24/humans-868695_960_720.jpg'
     },
@@ -33,58 +34,58 @@ const workouts = [
         value: 'lunge',
         description: 'A lunge can refer to any position of the human body where one leg is positioned forward with knee bent and foot flat on the ground while the other leg is positioned behind.',
         image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
-    },
-    {
-        id: 5,
-        name: 'Crunches',
-        value: 'crunch',
-        description: 'The basic crunch is a abdominal exercise in a strength-training program. This move isolates the abdominal muscles.',
-        image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
-    },
-    {
-        id: 6,
-        name: 'Pushups',
-        value: 'pushup',
-        description: 'Pushups are a common calisthenics exercise performed in a prone position by raising and lowering the body using the arms.',
-        image: 'https://images.unsplash.com/photo-1581093457331-9c9c6a7b5c6e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHVzaHVwc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80'
-
-    },
-    // add more workouts here
-    {
-        id: 7,
-        name: 'Jumping Jacks',
-        value: 'jumping_jacks',
-        description: 'A jumping jack is a physical jumping exercise performed by jumping to a position with the legs spread wide and the hands going overhead.',
-        image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
-    },
-    {
-        id: 8,
-        name: 'Burpees',
-        value: 'burpee',
-        description: 'The burpee, or squat thrust, is a full body exercise used in strength training and as an aerobic exercise.',
-        image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
-    },
-    {
-        id: 9,
-        name: 'Side Planks',
-        value: 'side_plank',
-        description: 'The side plank is a bodyweight core strength exercise that improves shoulder stability, core strength, and balance.',
-        image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
-    },
-    {
-        id: 10,
-        name: 'Bicycle Crunches',
-        value: 'bicycle_crunch',
-        description: 'The bicycle crunch is an excellent exercise for building abdominal strength and toning your thighs.',
-        image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
-    },
-    {
-        id: 11,
-        name: 'Pullups',
-        value: 'pullup',
-        description: 'A pull-up is an upper-body strength exercise. The pull-up is a closed-chain movement where the body is suspended by the hands and pulls up.',
-        image: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-pullup.jpg?w=1200&h=1200&crop=1'
     }
+    // {
+    //     id: 5,
+    //     name: 'Crunches',
+    //     value: 'crunch',
+    //     description: 'The basic crunch is a abdominal exercise in a strength-training program. This move isolates the abdominal muscles.',
+    //     image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
+    // },
+    // {
+    //     id: 6,
+    //     name: 'Pushups',
+    //     value: 'pushup',
+    //     description: 'Pushups are a common calisthenics exercise performed in a prone position by raising and lowering the body using the arms.',
+    //     image: 'https://images.unsplash.com/photo-1581093457331-9c9c6a7b5c6e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHVzaHVwc3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80'
+
+    // },
+    // // add more workouts here
+    // {
+    //     id: 7,
+    //     name: 'Jumping Jacks',
+    //     value: 'jumping_jacks',
+    //     description: 'A jumping jack is a physical jumping exercise performed by jumping to a position with the legs spread wide and the hands going overhead.',
+    //     image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
+    // },
+    // {
+    //     id: 8,
+    //     name: 'Burpees',
+    //     value: 'burpee',
+    //     description: 'The burpee, or squat thrust, is a full body exercise used in strength training and as an aerobic exercise.',
+    //     image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
+    // },
+    // {
+    //     id: 9,
+    //     name: 'Side Planks',
+    //     value: 'side_plank',
+    //     description: 'The side plank is a bodyweight core strength exercise that improves shoulder stability, core strength, and balance.',
+    //     image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
+    // },
+    // {
+    //     id: 10,
+    //     name: 'Bicycle Crunches',
+    //     value: 'bicycle_crunch',
+    //     description: 'The bicycle crunch is an excellent exercise for building abdominal strength and toning your thighs.',
+    //     image: 'https://www.verywellfit.com/thmb/4Z8n5NtZQp0QH5j2v8Z1G0qQ1tI=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/plank-exercise-4098288-0b2c8f0c0b9b4d5b9a9b5b0e9d0f7d1b.jpg'
+    // },
+    // {
+    //     id: 11,
+    //     name: 'Pullups',
+    //     value: 'pullup',
+    //     description: 'A pull-up is an upper-body strength exercise. The pull-up is a closed-chain movement where the body is suspended by the hands and pulls up.',
+    //     image: 'https://www.mensjournal.com/wp-content/uploads/mf/1280-pullup.jpg?w=1200&h=1200&crop=1'
+    // }
 ]
 const Posture = () => {
 
@@ -127,14 +128,14 @@ const Posture = () => {
 
 
 
-            const formData = new FormData();
-            formData.append("exercise_type", selectedWorkout);
-            formData.append("file", video);
+            // const formData = new FormData();
+            // formData.append("exercise_type", selectedWorkout);
+            // formData.append("file", video);
 
-            const res = await axios.post("https://1150-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload-video?exercise_type=" + selectedWorkout, formData);
-            console.log(res.data);
-             setResult(res.data);
-            setLoading(false);
+            // const res = await axios.post("https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload-video?exercise_type=" + selectedWorkout, formData);
+            // console.log(res.data);
+            // setResult(res.data);
+            // setLoading(false);
 
             /*
             {
@@ -156,27 +157,27 @@ const Posture = () => {
 }
 */
 
-            // setTimeout(() => {
-            //     console.log("done");
-            //     setResult({
-            //         "type": "plank",
-            //         "processed": true,
-            //         "file_name": "/videos/video1.mp4",
-            //         "details": [
-            //             {
-            //                 "stage": "low back",
-            //                 "frame": "/static/images/video_20231028203253_0.jpg",
-            //                 "timestamp": 5
-            //             },
-            //             {
-            //                 "stage": "high back",
-            //                 "frame": "/static/images/video_20231028203253_1.jpg",
-            //                 "timestamp": 9
-            //             }
-            //         ]
-            //     });
-            //     setLoading(false);
-            // }, 5000);
+            setTimeout(() => {
+                console.log("done");
+                setResult({
+                    "type": "plank",
+                    "processed": true,
+                    "file_name": "/videos/video1.mp4",
+                    "details": [
+                        {
+                            "stage": "low back",
+                            "frame": "/static/images/video_20231028203253_0.jpg",
+                            "timestamp": 5
+                        },
+                        {
+                            "stage": "high back",
+                            "frame": "/static/images/video_20231028203253_1.jpg",
+                            "timestamp": 9
+                        }
+                    ]
+                });
+                setLoading(false);
+            }, 5000);
 
 
         } catch (e) {
@@ -207,12 +208,14 @@ const Posture = () => {
                     <WebcamRecord
                         toggleModal={() => setOpenModal(false)}
                         setVideo={setVideo}
+                        setSelectedWorkout={setSelectedWorkout}
+                        workouts={workouts}
                     />
                 )
             }
             <h3 className='text-xl md:text-3xl text-black font-bold'>Posture Detection</h3>
 
-            <div className='flex flex-col md:flex-row gap-8 w-full border border-gray-300 border-solid p-2 md:p-8 rounded-2xl'>
+            <div className='flex flex-col md:flex-row md:justify-between gap-8 md:gap-2 w-full border border-gray-300 border-solid p-2 md:p-8 rounded-2xl'>
 
                 <div className="flex justify-center md:w-1/2 sm:max-w-lg">
 
@@ -221,7 +224,7 @@ const Posture = () => {
                             <div
                                 className="flex flex-col items-center justify-center w-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100"
                             >
-                                <div className="flex flex-col items-center justify-center pt-5 pb-6">
+                                <div className="flex flex-col gap-2 items-center justify-center pt-5 pb-6">
                                     {/* preview of video */}
                                     <div className='w-[90%] h-full mx-auto relative'>
                                         <video
@@ -230,11 +233,20 @@ const Posture = () => {
                                             controls
                                         />
                                         <button
-                                            onClick={() => setVideo(null)}
+                                            onClick={() => {
+                                                setVideo(null)
+                                                setResult(null)
+                                            }}
                                             className='absolute top-0 right-0 translate-x-1/2 -translate-y-1 flex p-1 rounded-full bg-red-500'>
                                             <RxCross2 className='w-4 h-4 text-white' />
                                         </button>
                                     </div>
+                                    {/* Submit button */}
+                                    <button
+                                        onClick={handleSubmit}
+                                        className='bg-[#c759ff] hover:bg-violet-700 text-white font-bold py-2 px-4 rounded-lg w-[90%]'>
+                                        Submit
+                                    </button>
                                 </div>
                             </div>
                         ) : (
@@ -291,29 +303,29 @@ const Posture = () => {
                 </div>
 
                 <div className='md:w-1/2 flex flex-col gap-6 justify-between'>
-                    <div className='flex flex-wrap gap-4'>
+                    <div className='grid grid-cols-2 gap-4 h-full'>
                         {/* Workout to choose from */}
                         {
                             workouts.map((workout, index) => {
                                 return (
-                                    <button
+                                    <div
                                         key={index}
-                                        onClick={() => setSelectedWorkout(workout.value)}
-                                        className={`${selectedWorkout === workout.value
-                                            ? "bg-[#c759ff] text-white" : "bg-white hover:bg-gray-100 text-gray-800"} font-semibold py-2 px-4 border border-gray-400 rounded shadow`}
+                                        
+                                        className={`${selectedWorkout === workout.value && result && video
+                                            ? "bg-[#c759ff] text-white" : "bg-gray-200 hover:bg-gray-100 text-gray-600"} font-semibold py-2 px-4 border border-dashed border-gray-400 rounded shadow w-full h-full flex items-center justify-center`}
                                     >
                                         {workout.name}
-                                    </button>
+                                    </div>
                                 )
                             })
                         }
                     </div>
                     {/* Submit button */}
-                    <button
+                    {/* <button
                         onClick={handleSubmit}
                         className='bg-[#c759ff] hover:bg-violet-700 text-white font-bold py-2 px-4 rounded-lg'>
                         Submit
-                    </button>
+                    </button> */}
                 </div>
             </div>
 
@@ -332,13 +344,13 @@ const Posture = () => {
                                 {/* <ReactPlayer url={result.file_name} /> */}
                                 {/* <video
                                     className="w-full h-full"
-                                    src={"https://1150-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + result.file_name}
+                                    src={"https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + result.file_name}
                                     controls
                                     // start video from 5 seconds
                                     ref={videoRef}
                                 /> */}
                                 <ReactPlayer
-                                    url={"https://1150-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + result.file_name}
+                                    url={"https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + result.file_name}
                                     controls
                                     muted
                                     width="100%"
@@ -367,13 +379,13 @@ const Posture = () => {
                                                         className='rounded-lg shadow-lg w-full max-h-60 flex items-center justify-center overflow-hidden'
                                                     >
                                                         <img
-                                                            src={"https://1150-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + obj?.frame}
+                                                            src={"https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + obj?.frame}
                                                             alt={obj.stage}
                                                             className='w-full aspect-video'
                                                         />
 
                                                         {/* <iframe
-                                                            src={"https://1150-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + obj?.frame}
+                                                            src={"https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + obj?.frame}
                                                             className='w-full h-full'
                                                         /> */}
                                                         {/* <ImageDisplay url={obj?.frame} alt={obj?.stage} /> */}

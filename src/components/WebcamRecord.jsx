@@ -12,7 +12,9 @@ const OPTIONS = {
 
 export function WebcamRecord({
     toggleModal,
-    setVideo
+    setVideo,
+    setSelectedWorkout,
+    workouts
 }) {
     const {
         activeRecordings,
@@ -31,6 +33,8 @@ export function WebcamRecord({
 
     const [videoDeviceId, setVideoDeviceId] = React.useState("");
     const [audioDeviceId, setAudioDeviceId] = React.useState("");
+
+    const [loading, setLoading] = React.useState(false);
 
     const handleSelect = async (event) => {
         const { deviceid: deviceId } =
@@ -76,16 +80,17 @@ export function WebcamRecord({
 
     const uploadRecording = async (url) => {
         try {
+            setLoading(true);
             const response = await fetch(url);
             const blob = await response.blob();
 
             setVideo(blob);
-            toggleModal();
+            // toggleModal();
 
             // const formData = new FormData();
             // formData.append("file", blob);
 
-            // const res = await axios.post("https://1150-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload-video?exercise_type=plank", formData);
+            // const res = await axios.post("https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload-video?exercise_type=plank", formData);
             // console.log(res.data);
             // if (response.ok) {
             //     console.log('Video uploaded successfully');
@@ -98,7 +103,7 @@ export function WebcamRecord({
     };
 
     const handleClose = () => {
-        
+
         closeCamera();
 
         toggleModal();
@@ -251,13 +256,37 @@ export function WebcamRecord({
                                             // disabled={recording.status !== "RECORDING"}
                                             onClick={() => stopRecordingAndUpload(recording.id)}
                                         >
-                                            Stop and Upload
+                                            Upload
                                         </button>
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
+
+                    {/* Loading with 4 circuler pulses */}
+                    {
+                        loading && (
+                            <div className="w-full p-4 flex justify-center">
+                                <div className="flex gap-2">
+                                    {
+                                        workouts.map((workout) => (
+                                            <div
+                                                onClick={() => {
+                                                    setSelectedWorkout(workout?.value)
+                                                    console.log(workout?.value);
+                                                    setLoading(false);
+                                                    toggleModal();
+                                                }}
+                                                key={workout.id}
+                                                className="w-4 h-4 bg-gray-400 rounded-full animate-pulse"
+                                            />
+                                        ))
+                                    }
+                                </div>
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         </div>
