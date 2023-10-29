@@ -165,68 +165,72 @@ const Recommendation = () => {
     const [image3, setImage3] = useState(null);
 
     useEffect(() => {
-        // fetch the images from the backend api and store them in the state variable images using setImages and update the data. The backend provides one image in the form of a base64, add the necessary code to convert the base64 to an image and store it in the state variable images.
-
-        fetch(
-            "https://05c8-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload_video",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    image_type: workoutData?.breakfast?.name,
-                }),
-            }
-        )
-            .then((res) => res.json())
-            .then((res) => setImage1(res.json))
-            .catch((err) => console.log(err));
-
-        fetch(
-            "https://05c8-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload_video",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    image_type: workoutData?.lunch?.name,
-                }),
-            }
-        )
-            .then((res) => res.json())
-            .then((res) => setImage2(res.json))
-            .catch((err) => console.log(err));
-
-        fetch(
-            "https://05c8-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload_video",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    image_type: workoutData?.lunch?.name,
-                }),
-            }
-        )
-            .then((res) => res.json())
-            .then((res) => setImage3(res.json))
-            .catch((err) => console.log(err));
-    });
-
-    useEffect(() => {
         setOpenaiResponse(data[day]);
-    }, [day]);
-    useEffect(() => {
-        setWorkoutData(workoutMap[openaiResponse?.workout]);
-    }, [day]);
+        if (openaiResponse) setWorkoutData(data[openaiResponse?.workout]);
+        console.log("openaiResponse", openaiResponse);
+        console.log("workoutData", workoutData);
+    }, [openaiResponse]);
+
+    console.log("workoutData hi", workoutData);
 
     useEffect(() => {
         const res = explanation.split(/\r?\n/);
         setExplain(res);
     }, []);
+
+    useEffect(() => {
+        // fetch the images from the backend api and store them in the state variable images using setImages and update the data. The backend provides one image in the form of a base64, add the necessary code to convert the base64 to an image and store it in the state variable images.
+
+        if (workoutData === null) return;
+        console.log("poco m4", workoutData);
+        fetch(
+            `https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/crawl-images?query=${workoutData?.breakfast?.name}`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                // body: JSON.stringify({
+                //     query: workoutData?.breakfast?.name,
+                // }),
+            }
+        )
+            .then((res) => res.json())
+            .then((data) => setImage1(data.image_base64))
+            .catch((err) => console.log(err));
+
+        fetch(
+            `https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/crawl-images?query=${workoutData?.lunch?.name}`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                // body: JSON.stringify({
+                //     query: workoutData?.lunch?.name,
+                // }),
+            }
+        )
+            .then((res) => res.json())
+            .then((data) => setImage2(data.image_base64))
+            .catch((err) => console.log(err));
+
+        fetch(
+            `https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/crawl-images?query=${workoutData?.dinner?.name}`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                // body: JSON.stringify({
+                //     query: workoutData?.lunch?.name,
+                // }),
+            }
+        )
+            .then((res) => res.json())
+            .then((data) => setImage3(data.image_base64))
+            .catch((err) => console.log(err));
+    }, [workoutData]);
 
     const options = [
         { value: 1, label: "1" },

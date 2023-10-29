@@ -27,21 +27,21 @@ self.addEventListener("push", e => {
   console.log("Push Recieved...");
   self.registration.showNotification(data.title, {
     body: data.body,
-		icon:'https://powerup.sidd065.repl.co/icon512.png'
-	});
+    icon: 'https://powerup.sidd065.repl.co/icon512.png'
+  });
 });
 
 // actitivate the service worker
 self.addEventListener("activate", (event) => {
-    const cacheWhitelist = [];
-    cacheWhitelist.push(CACHE_NAME);
-    event.waitUntil(
-        caches.keys().then((cacheNames) => Promise.all(
-            cacheNames.map((cacheName) => {
-                if(!cacheWhitelist.includes(cacheName)){
-                    return caches.delete(cacheName);
-                }
-            })
-        ))
-    )
+  const cacheWhitelist = ['https://frontend-datahack.vercel.app/', 'https://datahack-backend.onrender.com/'];
+  cacheWhitelist.push(CACHE_NAME);
+  event.waitUntil(
+    caches.keys().then((cacheNames) => Promise.all(
+      cacheNames.map((cacheName) => {
+        if (!cacheWhitelist.includes(cacheName)) {
+          return caches.delete(cacheName);
+        }
+      })
+    ))
+  )
 });

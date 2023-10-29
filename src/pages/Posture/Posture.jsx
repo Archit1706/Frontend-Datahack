@@ -132,7 +132,7 @@ const Posture = () => {
             // formData.append("exercise_type", selectedWorkout);
             // formData.append("file", video);
 
-            // const res = await axios.post("https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app/upload-video?exercise_type=" + selectedWorkout, formData);
+            // const res = await axios.post("https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload-video?exercise_type=" + selectedWorkout, formData);
             // console.log(res.data);
             //  setResult(res.data);
             // setLoading(false);
@@ -311,14 +311,14 @@ const Posture = () => {
                         {/* <ReactPlayer url={result.file_name} /> */}
                         {/* <video
                                     className="w-full h-full"
-                                    src={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" + result.file_name}
+                                    src={"https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + result.file_name}
                                     controls
                                     // start video from 5 seconds
                                     ref={videoRef}
                                 /> */}
                         <ReactPlayer
                             url={
-                                "https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" +
+                                "https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" +
                                 result.file_name
                             }
                             controls
@@ -347,7 +347,7 @@ const Posture = () => {
                                         >
                                             <img
                                                 src={
-                                                    "https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" +
+                                                    "https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" +
                                                     obj?.frame
                                                 }
                                                 alt={obj.stage}
@@ -355,7 +355,7 @@ const Posture = () => {
                                             />
 
                                             {/* <iframe
-                                                            src={"https://2fc3-2402-3a80-1867-da3a-20bd-9102-1d99-9ff2.ngrok-free.app" + obj?.frame}
+                                                            src={"https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app" + obj?.frame}
                                                             className='w-full h-full'
                                                         /> */}
                                             {/* <ImageDisplay url={obj?.frame} alt={obj?.stage} /> */}
@@ -403,7 +403,7 @@ export default Posture;
 //     useEffect(()=>{
 //         axios.get(url, {
 //             headers: {
-//                 "ngrok-skip-browser-warning": "69420",
+//                 "-skip-browser-warning": "69420",
 //             },
 //         })
 //         .then(res=>{
@@ -440,7 +440,7 @@ export default Posture;
 //     useEffect(()=>{
 //         axios.get(url, {
 //             headers: {
-//                 "ngrok-skip-browser-warning": "6024",
+//                 "-skip-browser-warning": "6024",
 //             },
 //         })
 //         .then(res=>{

@@ -12,7 +12,7 @@ const data = {
             "name": "Grilled Tofu with Quinoa",
             "quantity": "1 serving",
         },
-        "workout": 0
+        "workout": 1
     },
     2: {
         "breakfast": {
@@ -27,7 +27,7 @@ const data = {
             "name": "Roasted Vegetable Stir-Fry",
             "quantity": "1 serving",
         },
-        "workout": 1
+        "workout": 2
     },
     3: {
         "breakfast": {
@@ -42,7 +42,7 @@ const data = {
             "name": "Spaghetti Squash with Tomato Sauce",
             "quantity": "1 serving",
         },
-        "workout": 2
+        "workout": 3
     },
     4: {
         "breakfast": {
@@ -57,7 +57,7 @@ const data = {
             "name": "Vegan Sushi",
             "quantity": "1 serving",
         },
-        "workout": 3
+        "workout": 4
     },
     5: {
         "breakfast": {
@@ -72,7 +72,7 @@ const data = {
             "name": "Veggie Burger",
             "quantity": "1 serving",
         },
-        "workout": 0
+        "workout": 1
     },
     6: {
         "breakfast": {
