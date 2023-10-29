@@ -41,7 +41,7 @@ const MExercise = () => {
         <section className="text-gray-600">
             <div className="flex flex-col justify-center items-center text-center">
                 <h2 className="text-xl font-bold tracking-wide">
-                    Power Up Training
+                    FitSphere Training
                 </h2>
                 <p className="text-xl font-semibold">Pick a workout</p>
             </div>

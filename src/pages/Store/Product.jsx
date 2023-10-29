@@ -47,8 +47,8 @@ const Product = () => {
                             },
                         ],
                         mode: "subscription",
-                        successUrl: "https://powerup.sidd065.repl.co/dashboard",
-                        cancelUrl: "https://powerup.sidd065.repl.co/dashboard",
+                        successUrl: "http://localhost:3000/dashboard",
+                        cancelUrl: "http://localhost:3000/dashboard",
                     })
                     .then(function (result) {
                         alert("Payment Successful!");

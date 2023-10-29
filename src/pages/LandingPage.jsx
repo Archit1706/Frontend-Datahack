@@ -51,7 +51,7 @@ export default function LandingPage() {
                                     to="/"
                                     className="text-violet-500 text-md text-xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap"
                                 >
-                                    Power Up
+                                    FitSphere
                                 </Link>
                             </div>
                             <button
@@ -161,7 +161,7 @@ export default function LandingPage() {
                                             data-animation-duration="1250"
                                             data-animation-direction=""
                                         >
-                                            Power Up
+                                            FitSphere
                                         </h2>
                                         <p
                                             className="u-text u-text-body-alt-color u-text-2"
@@ -170,7 +170,7 @@ export default function LandingPage() {
                                         >
                                             {" "}
                                             Take your health to new heights with
-                                            Power Up
+                                            FitSphere
                                         </p>
                                         <a
                                             className="add-button u-active-palette-3-light-2 u-btn u-btn-round u-button-style u-hover-palette-3-light-2 u-radius-50 u-text-active-palette-3-base u-text-hover-palette-3-base u-text-palette-3-base u-white u-btn-1"
@@ -210,7 +210,7 @@ export default function LandingPage() {
                                             data-animation-duration="1250"
                                             data-animation-delay="250"
                                         >
-                                            Power Up is compatible with a vast
+                                            FitSphere is compatible with a vast
                                             range of smart watches and wearable
                                             devices that run Wear OS.
                                             <br />

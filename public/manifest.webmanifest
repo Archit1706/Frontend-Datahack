@@ -1,13 +1,13 @@
 {
-  "name": "PowerUp",
-  "short_name": "PowerUp",
+  "name": "FitSphere",
+  "short_name": "FitSphere",
   "theme_color": "#cf2828",
   "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/dashboard",
-	"icons": [
+  "icons": [
     {
       "src": "maskable512.png",
       "sizes": "512x512",
@@ -20,9 +20,9 @@
       "sizes": "192x192"
     },
     {
-      "src": "icon256.png",
+      "src": "icon152.png",
       "type": "image/png",
-      "sizes": "256x256"
+      "sizes": "152x152"
     },
     {
       "src": "icon384.png",
@@ -34,5 +34,5 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-	]
+  ]
 }
