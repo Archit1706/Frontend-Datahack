@@ -1,34 +1,23 @@
-import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react';
-
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const Workout = () => {
+    const videoRef = React.useRef(null);
+    const canvasRef = React.useRef(null);
 
-    const videoRef = React.useRef(null)
-    const canvasRef = React.useRef(null)
+    const [capturing, setCapturing] = React.useState(false);
 
-    const [capturing, setCapturing] = React.useState(false)
-
-    const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0)
+    const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState(0);
 
     const [isFullScreen, setIsFullScreen] = useState(false);
 
-    const [showAns, setShowAns] = React.useState(false)
-    const [showNext, setShowNext] = React.useState(false)
+    const [showAns, setShowAns] = React.useState(false);
+    const [showNext, setShowNext] = React.useState(false);
 
-    const questions = [
-        "What is your name?",
-        "What is your age?"
-    ]
+    const questions = ["What is your name?", "What is your age?"];
 
-    const answers = [
-        "My name is John Doe",
-        "I am 21 years old"
-    ]
-
-
-
+    const answers = ["My name is John Doe", "I am 21 years old"];
 
     const [record, setRecord] = useState(false);
 
@@ -85,9 +74,6 @@ const Workout = () => {
         //         console.log(error);
         //     });
     };
-
-
-
 
     // Capture and send a frame every second
     useEffect(() => {
@@ -180,7 +166,7 @@ const Workout = () => {
                     // });
                     fetch(
                         // `${process.env.NEXT_PUBLIC_BACKEND_URL}/get_image?${params}`,
-                        `https://datahack-backend.onrender.com/api/get_image`,
+                        `http://localhost:5000/api/get_image`,
                         {
                             method: "POST",
                             headers: {
@@ -203,9 +189,8 @@ const Workout = () => {
         }
     };
 
-
     return (
-        <div className='flex flex-col gap-2 w-full min-h-[80vh]'>
+        <div className="flex flex-col gap-2 w-full min-h-[80vh]">
             <div className="flex-grow w-full flex flex-col justify-center items-center gap-4">
                 <div className="flex justify-center items-center gap-4 md:h-auto flex-col md:flex-row">
                     {/* video of the user */}
@@ -230,13 +215,10 @@ const Workout = () => {
                                 style={{
                                     width: "100%",
                                 }}
-                            >
-                            </dotlottie-player>
+                            ></dotlottie-player>
                         </div>
                     </div>
                 </div>
-
-
 
                 {/* contains buttons to start and stop the interview */}
                 <div className="flex justify-center items-center gap-8">
@@ -259,7 +241,7 @@ const Workout = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Workout
+export default Workout;

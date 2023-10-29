@@ -1,40 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import TypewriterText from "../../components/TypewriterText";
+import { data, explanation } from "../../sampleResponse";
+import WorkoutCard from "./WorkoutCard";
 
-const days = [1, 2, 3, 4, 5, 6, 7];
+import Leg from "../../assets/exercise/leg.png";
+import Chest from "../../assets/exercise/chest.png";
+import Muscle from "../../assets/exercise/muscle.png";
+import Heart from "../../assets/exercise/heart-beat.png";
 
-const breakfastData = {
-    name: "Oats",
-    calories: 200,
-    protein: 20,
-    carbs: 20,
-    fat: 20,
-    img: "https://www.healthline.com/hlcmsresource/images/AN_images/steel-cut-vs-rolled-oats-1296x728-feature.jpg",
-    link: "https://www.healthline.com/nutrition/9-benefits-oats-oatmeal",
-};
+console.log(data);
 
-const lunchData = {
-    name: "Chicken",
-    calories: 200,
-    protein: 20,
-    carbs: 20,
-    fat: 20,
-    img: "https://www.healthline.com/hlcmsresource/images/AN_images/steel-cut-vs-rolled-oats-1296x728-feature.jpg",
-    link: "https://www.healthline.com/nutrition/9-benefits-oats-oatmeal",
-};
-
-const dinnerData = {
-    name: "Rice",
-    calories: 200,
-    protein: 20,
-    carbs: 20,
-    fat: 20,
-    img: "https://www.healthline.com/hlcmsresource/images/AN_images/steel-cut-vs-rolled-oats-1296x728-feature.jpg",
-    link: "https://www.healthline.com/nutrition/9-benefits-oats-oatmeal",
-};
-
-const MealComponent = ({ breakfast, lunch, dinner, day }) => {
+const MealComponent = ({
+    breakfast,
+    lunch,
+    dinner,
+    day,
+    image1,
+    image2,
+    image3,
+}) => {
     return (
         <>
             {/* Container for demo purpose */}
@@ -54,7 +39,10 @@ const MealComponent = ({ breakfast, lunch, dinner, day }) => {
                                         data-te-ripple-color="light"
                                     >
                                         <img
-                                            src="https://mdbcdn.b-cdn.net/img/new/standard/people/111.jpg"
+                                            src={
+                                                "data:image/png;base64," +
+                                                image1
+                                            }
                                             className="w-full"
                                         />
                                         <a href="#!">
@@ -90,7 +78,10 @@ const MealComponent = ({ breakfast, lunch, dinner, day }) => {
                                         data-te-ripple-color="light"
                                     >
                                         <img
-                                            src="https://mdbcdn.b-cdn.net/img/new/standard/people/111.jpg"
+                                            src={
+                                                "data:image/png;base64," +
+                                                image2
+                                            }
                                             className="w-full"
                                         />
                                         <a href="#!">
@@ -123,7 +114,10 @@ const MealComponent = ({ breakfast, lunch, dinner, day }) => {
                                         data-te-ripple-color="light"
                                     >
                                         <img
-                                            src="https://mdbcdn.b-cdn.net/img/new/standard/people/111.jpg"
+                                            src={
+                                                "data:image/png;base64," +
+                                                image3
+                                            }
                                             className="w-full"
                                         />
                                         <a href="#!">
@@ -158,46 +152,80 @@ const MealComponent = ({ breakfast, lunch, dinner, day }) => {
 
 const Recommendation = () => {
     const [day, setDay] = useState(1);
-    const [response, setResponse] = useState({});
+    const [explain, setExplain] = useState([]);
     const res =
         "1. Breakfast: Oats\n2. Lunch: Chicken\n3. Dinner: Rice\n1. Breakfast: Oats\n2. Lunch: Chicken\n3. Dinner: Rice\n1. Breakfast: Oats\n2. Lunch: Chicken\n3. Dinner: Rice\n1. Breakfast: Oats\n2. Lunch: Chicken\n3. Dinner: Rice\n1. Breakfast: Oats\n2. Lunch: Chicken\n3. Dinner: Rice\n1. Breakfast: Oats\n2. Lunch: Chicken\n3. Dinner: Rice\n".split(
             /\r?\n/
         );
-    const [openaiResponse, setOpenaiResponse] = useState(res);
-    console.log(openaiResponse);
+    const [openaiResponse, setOpenaiResponse] = useState(null);
+    const [workoutData, setWorkoutData] = useState(null);
+
+    const [image1, setImage1] = useState(null);
+    const [image2, setImage2] = useState(null);
+    const [image3, setImage3] = useState(null);
 
     useEffect(() => {
-        // const data = fetch("https://api.npoint.io/1a4d2fbbd8b4e4b7d8a5", {
-        //     method: "GET",
-        // })
-        //     .then((response) => response.json())
-        //     .then((data) => {
-        //         console.log(data);
-        //         setResponse({
-        //             1: { breakfast: breakfast, lunch: lunch, dinner: dinner },
-        //             2: { breakfast: lunch, lunch: lunch, dinner: dinner },
-        //             3: { breakfast: breakfast, lunch: lunch, dinner: dinner },
-        //             4: { breakfast: breakfast, lunch: lunch, dinner: dinner },
-        //             5: { breakfast: breakfast, lunch: lunch, dinner: dinner },
-        //             6: { breakfast: breakfast, lunch: lunch, dinner: dinner },
-        //             7: { breakfast: breakfast, lunch: lunch, dinner: dinner },
-        //         });
-        //     })
-        //     .catch((err) => {
-        //         console.log(err);
-        //     });
+        // fetch the images from the backend api and store them in the state variable images using setImages and update the data. The backend provides one image in the form of a base64, add the necessary code to convert the base64 to an image and store it in the state variable images.
 
-        setResponse({
-            1: [breakfastData, lunchData, dinnerData],
-            2: [lunchData, lunchData, dinnerData],
-            3: [breakfastData, lunchData, dinnerData],
-            4: [breakfastData, lunchData, dinnerData],
-            5: [breakfastData, lunchData, dinnerData],
-            6: [breakfastData, lunchData, dinnerData],
-            7: [breakfastData, lunchData, dinnerData],
-        });
+        fetch(
+            "https://05c8-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload_video",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    image_type: workoutData?.breakfast?.name,
+                }),
+            }
+        )
+            .then((res) => res.json())
+            .then((res) => setImage1(res.json))
+            .catch((err) => console.log(err));
 
-        console.log(response);
+        fetch(
+            "https://05c8-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload_video",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    image_type: workoutData?.lunch?.name,
+                }),
+            }
+        )
+            .then((res) => res.json())
+            .then((res) => setImage2(res.json))
+            .catch((err) => console.log(err));
+
+        fetch(
+            "https://05c8-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload_video",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    image_type: workoutData?.lunch?.name,
+                }),
+            }
+        )
+            .then((res) => res.json())
+            .then((res) => setImage3(res.json))
+            .catch((err) => console.log(err));
+    });
+
+    useEffect(() => {
+        setOpenaiResponse(data[day]);
+    }, [day]);
+    useEffect(() => {
+        setWorkoutData(workoutMap[openaiResponse?.workout]);
+    }, [day]);
+
+    useEffect(() => {
+        const res = explanation.split(/\r?\n/);
+        setExplain(res);
     }, []);
 
     const options = [
@@ -210,143 +238,121 @@ const Recommendation = () => {
         { value: 7, label: "7" },
     ];
 
+    const workoutMap = {
+        1: {
+            name: "Chest, Abs, Back",
+            description:
+                "This workout focuses on strengthening and toning your chest, abdominal and back muscles, giving you a well rounded and defined physique.",
+            url: "chest-abs-back",
+            icon: Muscle,
+        },
+        2: {
+            name: "Legs, Triceps, Calves",
+            description:
+                "This routine is designed to challenge and tone your lower body, upper arms and lower legs.",
+            url: "legs-triceps-calves",
+            icon: Leg,
+        },
+        3: {
+            name: "Shoulders, Biceps, Forearms",
+            description:
+                "This workout is designed to strengthen and tone the arm muscles, giving you a well rounded upper body workout.",
+            url: "shoulders-biceps-forearms",
+            icon: Chest,
+        },
+        4: {
+            name: "Cardio",
+            description:
+                "This workout is designed to strengthen and tone the arm muscles, giving you a well rounded upper body workout.",
+            url: "cardio",
+            icon: Heart,
+        },
+    };
+
     return (
-        <div className="w-full rounded-md p-2">
-            {/* <div className="flex justify-center items-center bg-inherit tabs tabs-boxed">
-                <a
-                    className={
-                        day === 1
-                            ? "tab tab-active bg-orange-600 text-white"
-                            : "text-gray-500 bg-orange-200 tab"
-                    }
-                    onClick={() => {
-                        console.log(day);
-                        setDay(1);
-                    }}
-                >
-                    Day 1
-                </a>
-                <a
-                    className={
-                        day === 2
-                            ? "tab tab-active bg-orange-600 text-white"
-                            : "text-gray-500 bg-orange-200 tab"
-                    }
-                    onClick={() => {
-                        console.log(day);
-                        setDay(2);
-                    }}
-                >
-                    Day 2
-                </a>
-                <a
-                    className={
-                        day === 3
-                            ? "tab tab-active bg-orange-600 text-white"
-                            : "text-gray-500 bg-orange-200 tab"
-                    }
-                    onClick={() => {
-                        setDay(3);
-                    }}
-                >
-                    Day 3
-                </a>
-                <a
-                    className={
-                        day === 4
-                            ? "tab tab-active bg-orange-600 text-white"
-                            : "text-gray-500 bg-orange-200 tab"
-                    }
-                    onClick={() => {
-                        setDay(4);
-                    }}
-                >
-                    Day 4
-                </a>
-                <a
-                    className={
-                        day === 5
-                            ? "tab tab-active bg-orange-600 text-white"
-                            : "text-gray-500 bg-orange-200 tab"
-                    }
-                    onClick={() => {
-                        setDay(5);
-                    }}
-                >
-                    Day 5
-                </a>
-                <a
-                    className={
-                        day === 6
-                            ? "tab tab-active bg-orange-600 text-white"
-                            : "text-gray-500 bg-orange-200 tab"
-                    }
-                    onClick={() => {
-                        setDay(6);
-                    }}
-                >
-                    Day 6
-                </a>
-                <a
-                    className={
-                        day === 7
-                            ? "tab tab-active bg-orange-600 text-white"
-                            : "text-gray-500 bg-orange-200 tab"
-                    }
-                    onClick={() => {
-                        setDay(7);
-                    }}
-                >
-                    Day 7
-                </a>
-            </div> */}
-            <div className="flex justify-center items-center -mb-14 md:mt-12 gap-4 text-md">
-                Select Day
-                <Select
-                    className="w-36"
-                    defaultValue={day}
-                    onChange={(day) => setDay(day.value)}
-                    options={options}
-                />
-            </div>
-            <div className="flex w-full flex-wrap rounded-md p-2">
+        <section className="flex flex-col gap-4 min-h-screen w-full p-4">
+            <h3 className="text-xl md:text-3xl text-black font-bold">
+                Complete Week Plan
+            </h3>
+            <div className="flex flex-col md:flex-row items-center gap-8 w-full border border-gray-300 border-solid p-2 md:p-8 rounded-2xl relative">
                 <div className="w-full md:w-2/3">
-                    {/*Tabs content*/}
+                    <Select
+                        className="w-full"
+                        defaultValue={day}
+                        onChange={(day) => setDay(day.value)}
+                        options={options}
+                    />
                     <div className="">
                         <div
                             key={day}
                             className="opacity-100 transition-opacity duration-150 ease-linear"
                             id={day}
                         >
-                            <MealComponent
-                                breakfast={breakfastData}
-                                lunch={lunchData}
-                                dinner={dinnerData}
-                                day={day}
-                            />
+                            {openaiResponse && (
+                                <MealComponent
+                                    breakfast={openaiResponse["breakfast"]}
+                                    lunch={openaiResponse["lunch"]}
+                                    dinner={openaiResponse["dinner"]}
+                                    day={day}
+                                    image1={image1}
+                                    image2={image2}
+                                    image3={image3}
+                                />
+                            )}
                         </div>
                     </div>
                 </div>
-                <div className="w-full md:w-1/3 bg-gray-100 rounded-md p-4">
-                    <h3 className="mb-12 text-center text-2xl font-semibold">
-                        Complete Day Plan
-                    </h3>
-                    <ul>
-                        {openaiResponse &&
-                            openaiResponse.map((item, index) => {
-                                return (
-                                    <li key={index} className="">
-                                        <TypewriterText text={item} />
-                                    </li>
-                                );
-                            })}
-                    </ul>
-                    {/* <p className="text-md">
-                    {openaiResponse && <TypewriterText text={openaiResponse} />}
-                </p> */}
+                {/* Horizontali scrollable slider having multiple images */}
+                <div className=" md:w-1/3 p-2 md:p-4 h-full">
+                    <div className="flex flex-col gap-4 overflow-y-auto scrollbar-hide h-full">
+                        <div
+                            className={`p-4 flex flex-col gap-2 rounded-lg shadow-lg w-full border`}
+                        >
+                            <h3 className="text-xl font-bold tracking-wide">
+                                Complete week plan
+                            </h3>
+                            <div className="rounded-lg  w-full max-h-60 flex flex-col items-center justify-center overflow-y-scroll scrollbar-hide py-4">
+                                {explain &&
+                                    explain.map((item, index) => {
+                                        return (
+                                            <p
+                                                key={index}
+                                                className="text-sm font-bold w-full"
+                                                style={{
+                                                    marginBlock: "0",
+                                                }}
+                                            >
+                                                <TypewriterText text={item} />
+                                            </p>
+                                        );
+                                    })}
+                            </div>
+
+                            <div className="flex justify-center items-center w-full">
+                                <div className="flex flex-col justify-center items-center text-center">
+                                    <h3 className="text-xl font-bold tracking-wide">
+                                        Today's Workout Goals
+                                    </h3>
+                                    {/* <p className="text-xl font-semibold">
+                        Lets start with some stretching exercises.
+                    </p> */}
+                                    {workoutData && (
+                                        <WorkoutCard
+                                            description={
+                                                workoutData?.description
+                                            }
+                                            name={workoutData?.name}
+                                            url={workoutData?.url}
+                                            icon={workoutData?.icon}
+                                        />
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

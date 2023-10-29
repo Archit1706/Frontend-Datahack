@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from "react"
+import React, { useEffect, useState } from "react";
 /*
 
 'weight'
@@ -18,199 +18,212 @@ import React, { useEffect,useState } from "react"
 
 */
 export default function GetData(props) {
-  const [notified, setNotified] = useState(false)
-  useEffect(() => {
-    const hourSum = (array) =>{
-      const date = new Date();
-      let sum = 0;
-      const count = 23-date.getHours();
-      for (let i=count; i<24; i++){
-        sum+=array[i]
-      }
-      return sum
-    }
-    const handleNotification = (text) => {
-    if (!('Notification' in window)) {
-      alert('This browser does not support notifications');
-    } else {
-      Notification.requestPermission().then((permission) => {
-        if (permission === 'granted' && !notified) {
-          new Notification(text);
-          setNotified(true)
+    const [notified, setNotified] = useState(false);
+    useEffect(() => {
+        const hourSum = (array) => {
+            const date = new Date();
+            let sum = 0;
+            const count = 23 - date.getHours();
+            for (let i = count; i < 24; i++) {
+                sum += array[i];
+            }
+            return sum;
+        };
+        const handleNotification = (text) => {
+            if (!("Notification" in window)) {
+                alert("This browser does not support notifications");
+            } else {
+                Notification.requestPermission().then((permission) => {
+                    if (permission === "granted" && !notified) {
+                        new Notification(text);
+                        setNotified(true);
+                    }
+                });
+            }
+        };
+        props.update(1);
+        async function fetchData() {
+            const userid = localStorage.getItem("id");
+            const email = localStorage.getItem("email");
+            let updatedAt = "";
+            //1
+            let res = await fetch("http://localhost:5000/api/users/find", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    userid: userid,
+                }),
+            });
+            let resJson = await res.json();
+            console.log(resJson, userid, email);
+            if (res.status === 200) {
+                localStorage.setItem("weight", resJson.weight);
+                localStorage.setItem("height", resJson.height);
+                localStorage.setItem("stepGoal", resJson.stepGoal);
+                localStorage.setItem("calGoal", resJson.calGoal);
+                localStorage.setItem("weightGoal", resJson.weightGoal);
+                localStorage.setItem("name", resJson.name);
+                localStorage.setItem("vegan", resJson.vegan);
+                localStorage.setItem("veg", resJson.veg);
+                localStorage.setItem("diabetic", resJson.diabetic);
+                localStorage.setItem("points", resJson.points);
+                localStorage.setItem("updatedAt", resJson.updatedAt);
+                updatedAt = resJson.updatedAt;
+            }
+            const date = new Date(updatedAt);
+            if (Date.now() - date >= 7 * 24 * 60 * 60 * 1000) {
+                //handleNotification('You havent updated your health information in two weeks');
+            }
+            //2
+            props.update(1);
+            res = await fetch("http://localhost:5000/api/info/getCalories", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: email,
+                }),
+            });
+            resJson = await res.json();
+            if (res.status === 200) {
+                localStorage.setItem("cal24h", hourSum(resJson.data));
+                localStorage.setItem(
+                    "cal24hArray",
+                    JSON.stringify(resJson.data)
+                );
+            } //3
+            console.log(localStorage.getItem("cal24h"));
+            props.update(1);
+            res = await fetch("http://localhost:5000/api/info/getCalories", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: email,
+                    duration: "7d",
+                }),
+            });
+            resJson = await res.json();
+            console.log(resJson);
+            if (res.status === 200) {
+                localStorage.setItem("cal7d", resJson.sum);
+                localStorage.setItem(
+                    "cal7dArray",
+                    JSON.stringify(resJson.data)
+                );
+            } //4
+            props.update(1);
+            res = await fetch("http://localhost:5000/api/info/getSteps", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: email,
+                }),
+            });
+            resJson = await res.json();
+            console.log(resJson);
+            if (res.status === 200) {
+                localStorage.setItem("step24h", hourSum(resJson.data));
+                localStorage.setItem(
+                    "step24hArray",
+                    JSON.stringify(resJson.data)
+                );
+            } //5
+            props.update(1);
+            res = await fetch("http://localhost:5000/api/info/getSteps", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: email,
+                    duration: "7d",
+                }),
+            });
+            resJson = await res.json();
+            console.log(resJson);
+            if (res.status === 200) {
+                localStorage.setItem("step7d", resJson.sum);
+                localStorage.setItem(
+                    "step7dArray",
+                    JSON.stringify(resJson.data)
+                );
+            } //6
+            props.update(1);
+            res = await fetch("http://localhost:5000/api/meals/getdetails", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    userid: userid,
+                }),
+            });
+            resJson = await res.json();
+            console.log(resJson);
+            if (res.status === 200) {
+                localStorage.setItem("foodCal", resJson.calories);
+                localStorage.setItem("foodPro", resJson.proteins);
+                localStorage.setItem("foodFat", resJson.fats);
+            } //7
+            props.update(1);
+            res = await fetch("http://localhost:5000/api/meals/weeklyCals", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    userid: userid,
+                }),
+            });
+            resJson = await res.json();
+            console.log("This is the 7d calorie intake ↓↓↓");
+            console.log(resJson);
+            if (res.status === 200) {
+                localStorage.setItem(
+                    "calIntake7d",
+                    JSON.stringify(resJson.sum)
+                );
+            } //8
+            res = await fetch("http://localhost:5000/api/friend/search", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    userid: localStorage.getItem("id"),
+                }),
+            });
+            resJson = await res.json();
+            console.log(resJson);
+            if (res.status === 200) {
+                localStorage.setItem("friendArray", JSON.stringify(resJson));
+            }
+            props.update(1);
+            //9
+            res = await fetch("http://localhost:5000/api/users/all", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    userid: userid,
+                }),
+            });
+            resJson = await res.json();
+            console.log(resJson, userid, email);
+            if (res.status === 200) {
+                localStorage.setItem("allArray", JSON.stringify(resJson));
+                updatedAt = resJson.updatedAt;
+            }
         }
-      });
-    }
-    };
-    props.update(1)
-    async function fetchData() {
-      const userid = localStorage.getItem("id");
-      const email = localStorage.getItem("email");
-      let updatedAt = ''
-      //1
-      let res = await fetch("https://datahack-backend.onrender.com/api/users/find", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          userid: userid
-        }),
-      });
-      let resJson = await res.json();
-      console.log(resJson, userid, email)
-      if (res.status === 200) {
-        localStorage.setItem('weight', resJson.weight);
-        localStorage.setItem('height', resJson.height);
-        localStorage.setItem('stepGoal', resJson.stepGoal);
-        localStorage.setItem('calGoal', resJson.calGoal);
-        localStorage.setItem('weightGoal', resJson.weightGoal);
-        localStorage.setItem('name', resJson.name);
-        localStorage.setItem('vegan',resJson.vegan)
-        localStorage.setItem('veg',resJson.veg)
-        localStorage.setItem('diabetic',resJson.diabetic)
-        localStorage.setItem('points',resJson.points)
-        localStorage.setItem('updatedAt', resJson.updatedAt)
-        updatedAt=resJson.updatedAt
-      }
-      const date = new Date(updatedAt)
-      if (Date.now() - date >= 7 * 24 * 60 * 60 * 1000) {
-        //handleNotification('You havent updated your health information in two weeks');
-      }
-      //2
-      props.update(1)
-      res = await fetch("https://datahack-backend.onrender.com/api/info/getCalories", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email
-        }),
-      });
-      resJson = await res.json();
-      if (res.status === 200) {
-        localStorage.setItem('cal24h', hourSum(resJson.data));
-        localStorage.setItem("cal24hArray", JSON.stringify(resJson.data));
-      }//3
-			console.log(localStorage.getItem('cal24h'))
-      props.update(1)
-      res = await fetch("https://datahack-backend.onrender.com/api/info/getCalories", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email,
-          duration:'7d'
-        }),
-      });
-      resJson = await res.json();
-      console.log(resJson)
-      if (res.status === 200) {
-        localStorage.setItem('cal7d', resJson.sum);
-        localStorage.setItem("cal7dArray", JSON.stringify(resJson.data));
-      }//4
-      props.update(1)
-      res = await fetch("https://datahack-backend.onrender.com/api/info/getSteps", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email
-        }),
-      });
-      resJson = await res.json();
-      console.log(resJson)
-      if (res.status === 200) {
-        localStorage.setItem('step24h', hourSum(resJson.data));
-        localStorage.setItem("step24hArray", JSON.stringify(resJson.data));
-      }//5
-      props.update(1)
-      res = await fetch("https://datahack-backend.onrender.com/api/info/getSteps", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email,
-          duration:'7d'
-        }),
-      });
-      resJson = await res.json();
-      console.log(resJson)
-      if (res.status === 200) {
-        localStorage.setItem('step7d', resJson.sum);
-        localStorage.setItem("step7dArray", JSON.stringify(resJson.data));
-      }//6
-      props.update(1)
-      res = await fetch("https://datahack-backend.onrender.com/api/meals/getdetails", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          userid: userid
-        }),
-      });
-      resJson = await res.json();
-      console.log(resJson)
-      if (res.status === 200) {
-        localStorage.setItem('foodCal', resJson.calories);
-        localStorage.setItem('foodPro', resJson.proteins);
-        localStorage.setItem('foodFat', resJson.fats);
-      }//7
-      props.update(1)
-      res = await fetch("https://datahack-backend.onrender.com/api/meals/weeklyCals", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          userid: userid
-        }),
-      });
-      resJson = await res.json();
-      console.log("This is the 7d calorie intake ↓↓↓")
-      console.log(resJson)
-      if (res.status === 200) {
-        localStorage.setItem('calIntake7d', JSON.stringify(resJson.sum));
-      }//8
-      res = await fetch("https://datahack-backend.onrender.com/api/friend/search", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          userid: localStorage.getItem("id")
-        }),
-      });
-      resJson = await res.json();
-      console.log(resJson)
-      if (res.status === 200) {
-        localStorage.setItem('friendArray', JSON.stringify(resJson))
-      }
-      props.update(1)
-      //9
-      res = await fetch("https://datahack-backend.onrender.com/api/users/all", {
-        method: "POST",
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          userid: userid
-        }),
-      });
-      resJson = await res.json();
-      console.log(resJson, userid, email)
-      if (res.status === 200) {
-        localStorage.setItem('allArray', JSON.stringify(resJson))
-        updatedAt=resJson.updatedAt
-      }
-    }
-    fetchData()
-  }, [])
-  return (
-    <></>
-  )
+        fetchData();
+    }, []);
+    return <></>;
 }
