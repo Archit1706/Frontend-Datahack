@@ -27,7 +27,7 @@ self.addEventListener("push", e => {
   console.log("Push Recieved...");
   self.registration.showNotification(data.title, {
     body: data.body,
-    icon: 'https://powerup.sidd065.repl.co/icon512.png'
+    icon: 'http://localhost:3000/icon512.png'
   });
 });
 

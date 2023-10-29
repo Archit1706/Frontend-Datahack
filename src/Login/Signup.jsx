@@ -50,7 +50,7 @@ export default function Signup() {
                 <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
                     <h1 className="title-font font-medium text-3xl text-gray-900">
                         Welcome to{" "}
-                        <span className="text-violet-500">Power Up!</span>
+                        <span className="text-violet-500">FitSphere!</span>
                     </h1>
 
                     <p className="leading-relaxed mt-4">
