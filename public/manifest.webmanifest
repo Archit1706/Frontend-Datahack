@@ -1,7 +1,7 @@
 {
   "name": "FitSphere",
   "short_name": "FitSphere",
-  "theme_color": "#cf2828",
+  "theme_color": "#7700ff",
   "background_color": "#ffffff",
   "display": "standalone",
   "orientation": "portrait",

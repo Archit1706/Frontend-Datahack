@@ -51,7 +51,7 @@ const MealComponent = ({
                                     </div>
                                 </div>
                                 <div className="p-6">
-                                    <h5 className="mb-4 text-lg font-bold">
+                                    <h5 className="mb-4 text-lg font-bold text-white">
                                         {breakfast.name}
                                     </h5>
                                     {/* <p className="mb-6">
@@ -90,7 +90,7 @@ const MealComponent = ({
                                     </div>
                                 </div>
                                 <div className="p-6">
-                                    <h5 className="mb-4 text-lg font-bold">
+                                    <h5 className="mb-4 text-lg font-bold text-white">
                                         {lunch.name}
                                     </h5>
                                     {/* <p className="mb-6">
@@ -126,7 +126,7 @@ const MealComponent = ({
                                     </div>
                                 </div>
                                 <div className="p-6">
-                                    <h5 className="mb-4 text-lg font-bold">
+                                    <h5 className="mb-4 text-lg font-bold text-white">
                                         {dinner.name}
                                     </h5>
                                     {/* <p className="mb-6">
@@ -179,12 +179,19 @@ const Recommendation = () => {
     }, []);
 
     useEffect(() => {
+        setOpenaiResponse(data[day]);
+        if (openaiResponse) setWorkoutData(data[openaiResponse?.workout]);
+        console.log("openaiResponse", openaiResponse);
+        console.log("workoutData", workoutData);
+    }, [day]);
+
+    useEffect(() => {
         // fetch the images from the backend api and store them in the state variable images using setImages and update the data. The backend provides one image in the form of a base64, add the necessary code to convert the base64 to an image and store it in the state variable images.
 
         if (workoutData === null) return;
         console.log("poco m4", workoutData);
         fetch(
-            `https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/crawl-images?query=${workoutData?.breakfast?.name}`,
+            `https://8b6b-2402-3a80-4190-beee-98ef-b30e-7fb3-6cb4.ngrok-free.app/crawl-images?query=${workoutData?.breakfast?.name}`,
             {
                 method: "POST",
                 headers: {
@@ -200,7 +207,7 @@ const Recommendation = () => {
             .catch((err) => console.log(err));
 
         fetch(
-            `https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/crawl-images?query=${workoutData?.lunch?.name}`,
+            `https://8b6b-2402-3a80-4190-beee-98ef-b30e-7fb3-6cb4.ngrok-free.app/crawl-images?query=${workoutData?.lunch?.name}`,
             {
                 method: "POST",
                 headers: {
@@ -216,7 +223,7 @@ const Recommendation = () => {
             .catch((err) => console.log(err));
 
         fetch(
-            `https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/crawl-images?query=${workoutData?.dinner?.name}`,
+            `https://8b6b-2402-3a80-4190-beee-98ef-b30e-7fb3-6cb4.ngrok-free.app/crawl-images?query=${workoutData?.dinner?.name}`,
             {
                 method: "POST",
                 headers: {

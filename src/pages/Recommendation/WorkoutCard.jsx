@@ -10,11 +10,7 @@ const WorkoutCard = ({ name, description, url, icon }) => {
         <div className="w-full bg-gray-100 rounded-lg hover:scale-105 ease-in-out duration-500 m-2 p-2 hover:text-red-500">
             <div className="w-full flex flex-col items-center text-center p-5 bg-transparent rounded-lg flex items-center justify-between">
                 <div className="rounded-full bg-violet-500 p-4">
-                    <img
-                        src={icon}
-                        alt="Legs, Triceps, Calves"
-                        className="h-10 w-10"
-                    />
+                    <img src={icon} alt={name} className="h-10 w-10" />
                 </div>
                 <h3 className="my-2 text-black text-md font-bold tracking-widest title-font mb-1 uppercase pt-4">
                     {name}

@@ -71,7 +71,6 @@
 //         }
 //     };
 
-
 //     const stopRecordingAndUpload = async (recordingId) => {
 //         console.log("stopRecordingAndUpload");
 //         stopRecording(recordingId);
@@ -95,7 +94,7 @@
 //             // const formData = new FormData();
 //             // formData.append("file", blob);
 
-//             // const res = await axios.post("https://c75a-2402-3a80-4190-beee-d9-e9b3-e9fc-7e5e.ngrok-free.app/upload-video?exercise_type=plank", formData);
+//             // const res = await axios.post("https://8b6b-2402-3a80-4190-beee-98ef-b30e-7fb3-6cb4.ngrok-free.app/upload-video?exercise_type=plank", formData);
 //             // console.log(res.data);
 //             // if (response.ok) {
 //             //     console.log('Video uploaded successfully');
@@ -121,7 +120,6 @@
 
 //                     {/* Close Button */}
 //                     <RxCross2 className="absolute top-4 right-4 cursor-pointer" onClick={handleClose} />
-
 
 //                     <div className="w-full flex flex-col md:flex-row gap-4 items-centerp p-4">
 //                         <div className="md:w-1/2 flex flex-col md:flex-row gap-2 md:items-center">
@@ -298,19 +296,8 @@
 //     );
 // }
 
-
-
-
-
-
-
-
-
 import React from "react";
-import {
-    useRecordWebcam,
-    CAMERA_STATUS
-} from "react-record-webcam";
+import { useRecordWebcam, CAMERA_STATUS } from "react-record-webcam";
 import { RxCross2 } from "react-icons/rx";
 import axios from "axios";
 
@@ -318,14 +305,14 @@ const OPTIONS = {
     filename: "test-filename",
     fileType: "mp4",
     width: 1920,
-    height: 1080
+    height: 1080,
 };
 
 export function WebcamRecord({
     toggleModal,
     setVideo,
     setSelectedWorkout,
-    workouts
+    workouts,
 }) {
     const recordWebcam = useRecordWebcam(OPTIONS);
     const getRecordingFileHooks = async () => {
@@ -337,7 +324,6 @@ export function WebcamRecord({
 
     const [loading, setLoading] = React.useState(false);
 
-
     const handleClose = () => {
         recordWebcam.close();
         toggleModal();
@@ -347,34 +333,44 @@ export function WebcamRecord({
         <div className="fixed top-0 bottom-0 left-0 right-0 z-[1000] bg-black/25 overflow-y-auto scrollbar-hide rounded-lg">
             <div className="absolute inset-4 md:inset-16 md:right-16 bg-violet-100 overflow-y-auto scrollbar-hide rounded-lg">
                 <div className="w-full h-full flex flex-col pt-8">
-
                     {/* Close Button */}
-                    <RxCross2 className="absolute top-4 right-4 cursor-pointer" onClick={handleClose} />
-
+                    <RxCross2
+                        className="absolute top-4 right-4 cursor-pointer"
+                        onClick={handleClose}
+                    />
 
                     <div className="w-full p-4">
-                        <button onClick={recordWebcam.open} className="px-3 py-1 bg-[#c759ff] rounded-lg text-white" >Open camera</button>
+                        <button
+                            onClick={recordWebcam.open}
+                            className="px-3 py-1 bg-[#c759ff] rounded-lg text-white"
+                        >
+                            Open camera
+                        </button>
                     </div>
                     <div className="w-full p-4">
-
-
                         <div className="device">
-                            <p className="text-lg font-semibold"
+                            <p
+                                className="text-lg font-semibold"
                                 style={{
                                     marginBlock: "0",
                                 }}
-                            >Live</p>
+                            >
+                                Live
+                            </p>
                             <div className="device-list">
                                 <small>Status: {recordWebcam.status}</small>
                             </div>
                             <video
                                 ref={recordWebcam.webcamRef}
                                 style={{
-                                    display: `${recordWebcam.status === CAMERA_STATUS.OPEN ||
-                                        recordWebcam.status === CAMERA_STATUS.RECORDING
-                                        ? "block"
-                                        : "none"
-                                        }`
+                                    display: `${
+                                        recordWebcam.status ===
+                                            CAMERA_STATUS.OPEN ||
+                                        recordWebcam.status ===
+                                            CAMERA_STATUS.RECORDING
+                                            ? "block"
+                                            : "none"
+                                    }`,
                                 }}
                                 autoPlay
                                 muted
@@ -382,15 +378,24 @@ export function WebcamRecord({
                             <div className="flex gap-2">
                                 <button
                                     className={`px-3 py-1 rounded-lg text-white
-                                            ${recordWebcam.status === CAMERA_STATUS.CLOSED ||
-                                            recordWebcam.status === CAMERA_STATUS.RECORDING ||
-                                            recordWebcam.status === CAMERA_STATUS.PREVIEW
-                                            ? "bg-gray-400" : "bg-[#c759ff] hover:bg-violet-700"}
+                                            ${
+                                                recordWebcam.status ===
+                                                    CAMERA_STATUS.CLOSED ||
+                                                recordWebcam.status ===
+                                                    CAMERA_STATUS.RECORDING ||
+                                                recordWebcam.status ===
+                                                    CAMERA_STATUS.PREVIEW
+                                                    ? "bg-gray-400"
+                                                    : "bg-[#c759ff] hover:bg-violet-700"
+                                            }
                                         `}
                                     disabled={
-                                        recordWebcam.status === CAMERA_STATUS.CLOSED ||
-                                        recordWebcam.status === CAMERA_STATUS.RECORDING ||
-                                        recordWebcam.status === CAMERA_STATUS.PREVIEW
+                                        recordWebcam.status ===
+                                            CAMERA_STATUS.CLOSED ||
+                                        recordWebcam.status ===
+                                            CAMERA_STATUS.RECORDING ||
+                                        recordWebcam.status ===
+                                            CAMERA_STATUS.PREVIEW
                                     }
                                     onClick={recordWebcam.start}
                                 >
@@ -420,9 +425,17 @@ export function WebcamRecord({
                                     </button> */}
                                 <button
                                     className={`px-3 py-1 bg-red-500 hover:bg-red-700 rounded-lg text-white
-                                            ${recordWebcam.status !== CAMERA_STATUS.RECORDING ? "bg-gray-400" : "bg-[#c759ff] hover:bg-violet-700"}
+                                            ${
+                                                recordWebcam.status !==
+                                                CAMERA_STATUS.RECORDING
+                                                    ? "bg-gray-400"
+                                                    : "bg-[#c759ff] hover:bg-violet-700"
+                                            }
                                         `}
-                                    disabled={recordWebcam.status !== CAMERA_STATUS.RECORDING}
+                                    disabled={
+                                        recordWebcam.status !==
+                                        CAMERA_STATUS.RECORDING
+                                    }
                                     onClick={recordWebcam.stop}
                                 >
                                     Stop
@@ -433,7 +446,8 @@ export function WebcamRecord({
                                     Cancel
                                 </button> */}
                             </div>
-                            <div className="
+                            <div
+                                className="
                                     flex
                                     flex-col
                                     gap-2
@@ -443,32 +457,45 @@ export function WebcamRecord({
                                     rounded-lg
                                     bg-gray-50
                                     mt-4
-                                ">
+                                "
+                            >
                                 <p
                                     style={{
                                         marginBlockStart: "0",
                                     }}
                                     className="text-lg font-semibold"
-                                >Preview</p>
+                                >
+                                    Preview
+                                </p>
                                 <video
                                     ref={recordWebcam.previewRef}
                                     style={{
-                                        display: `${recordWebcam.status === CAMERA_STATUS.PREVIEW ? "block" : "none"
-                                            }`
+                                        display: `${
+                                            recordWebcam.status ===
+                                            CAMERA_STATUS.PREVIEW
+                                                ? "block"
+                                                : "none"
+                                        }`,
                                     }}
                                     controls
                                 />
-                                <div className="
+                                <div
+                                    className="
                                         flex
                                         flex-row
                                         flex-wrap
                                         gap-2
                                         justify-end
-                                    ">
-                                    <button onClick={recordWebcam.download}
+                                    "
+                                >
+                                    <button
+                                        onClick={recordWebcam.download}
                                         className="px-3 py-1 bg-[#c759ff] hover:bg-violet-700 rounded-lg text-white"
-                                    >Download</button>
-                                    <button onClick={recordWebcam.retake}
+                                    >
+                                        Download
+                                    </button>
+                                    <button
+                                        onClick={recordWebcam.retake}
                                         className="px-3 py-1 bg-red-500 hover:bg-red-700 rounded-lg text-white"
                                     >
                                         Clear preview
@@ -484,38 +511,27 @@ export function WebcamRecord({
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
-
                     </div>
 
                     {/* Loading with 4 circuler pulses */}
-                    {
-                        loading && (
-                            <div className="w-full p-4 flex justify-center">
-                                <div className="flex gap-2">
-                                    {
-                                        workouts.map((workout) => (
-                                            <div
-                                                onClick={() => {
-                                                    setSelectedWorkout(workout?.value)
-                                                    console.log(workout?.value);
-                                                    setLoading(false);
-                                                    toggleModal();
-                                                }}
-                                                key={workout.id}
-                                                className="w-4 h-4 bg-gray-400 rounded-full animate-pulse"
-                                            />
-                                        ))
-                                    }
-                                </div>
+                    {loading && (
+                        <div className="w-full p-4 flex justify-center">
+                            <div className="flex gap-2">
+                                {workouts.map((workout) => (
+                                    <div
+                                        onClick={() => {
+                                            setSelectedWorkout(workout?.value);
+                                            console.log(workout?.value);
+                                            setLoading(false);
+                                            toggleModal();
+                                        }}
+                                        key={workout.id}
+                                        className="w-4 h-4 bg-gray-400 rounded-full animate-pulse"
+                                    />
+                                ))}
                             </div>
-                        )
-                    }
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
